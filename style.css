@@ -1,0 +1,1091 @@
+```css
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: "Poppins", sans-serif;
+    background: #f7f3ee;
+    color: #252333;
+    overflow-x: hidden;
+}
+
+h1,
+h2,
+h3 {
+    font-family: "Caveat", cursive;
+}
+
+img {
+    max-width: 100%;
+    display: block;
+}
+
+button {
+    font-family: inherit;
+    cursor: pointer;
+}
+
+
+/* =========================
+   FLOATING STARS
+========================= */
+
+.stars {
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: 0;
+}
+
+.stars span {
+    position: absolute;
+    color: rgba(130, 105, 150, 0.18);
+    animation: float 7s infinite ease-in-out;
+}
+
+.stars span:nth-child(1) {
+    top: 15%;
+    left: 10%;
+}
+
+.stars span:nth-child(2) {
+    top: 25%;
+    right: 15%;
+    animation-delay: 1s;
+}
+
+.stars span:nth-child(3) {
+    top: 65%;
+    left: 20%;
+    font-size: 25px;
+}
+
+.stars span:nth-child(4) {
+    top: 80%;
+    right: 25%;
+    animation-delay: 2s;
+}
+
+.stars span:nth-child(5) {
+    top: 45%;
+    left: 80%;
+    animation-delay: 3s;
+}
+
+.stars span:nth-child(6) {
+    top: 90%;
+    left: 55%;
+}
+
+@keyframes float {
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-20px);
+    }
+}
+
+
+/* =========================
+   HERO
+========================= */
+
+.hero {
+    min-height: 100vh;
+
+    position: relative;
+    z-index: 1;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    text-align: center;
+
+    padding: 40px 20px;
+
+    background:
+        radial-gradient(
+            circle at 20% 20%,
+            #ddd2f3,
+            transparent 30%
+        ),
+        radial-gradient(
+            circle at 80% 80%,
+            #d5e8ef,
+            transparent 30%
+        ),
+        #f7f3ee;
+
+    overflow: hidden;
+}
+
+.hero-content {
+    max-width: 750px;
+}
+
+.small-text {
+    font-size: 13px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: #777080;
+    margin-bottom: 25px;
+}
+
+.hero h1 {
+    font-size: clamp(75px, 12vw, 150px);
+    line-height: 0.78;
+    font-weight: 600;
+}
+
+.hero h1 span {
+    color: #8b72a8;
+}
+
+.hero-description {
+    margin: 40px auto;
+    line-height: 2;
+    color: #686273;
+    font-size: 15px;
+}
+
+.main-btn {
+    border: none;
+
+    padding: 15px 28px;
+
+    border-radius: 50px;
+
+    background: #292638;
+
+    color: white;
+
+    transition: 0.3s;
+}
+
+.main-btn:hover {
+    transform: translateY(-4px);
+
+    box-shadow:
+        0 15px 30px rgba(40, 35, 55, 0.2);
+}
+
+.floating-heart {
+    position: absolute;
+
+    font-size: 120px;
+
+    color: rgba(139, 114, 168, 0.1);
+
+    right: 10%;
+
+    top: 20%;
+
+    animation: float 5s infinite ease-in-out;
+}
+
+.floating-star {
+    position: absolute;
+
+    color: #8b72a8;
+
+    opacity: 0.5;
+
+    animation: float 4s infinite ease-in-out;
+}
+
+.star1 {
+    top: 20%;
+    left: 15%;
+}
+
+.star2 {
+    bottom: 20%;
+    right: 15%;
+    font-size: 30px;
+}
+
+.star3 {
+    bottom: 30%;
+    left: 20%;
+}
+
+
+/* =========================
+   SECTIONS
+========================= */
+
+.section {
+    position: relative;
+    z-index: 1;
+
+    padding: 120px 7%;
+}
+
+.section-heading {
+    max-width: 700px;
+
+    margin: 0 auto 70px;
+
+    text-align: center;
+}
+
+.section-heading span {
+    font-size: 12px;
+
+    letter-spacing: 4px;
+
+    color: #8b72a8;
+}
+
+.section-heading h2 {
+    font-size: clamp(50px, 7vw, 80px);
+
+    margin: 10px 0;
+}
+
+.section-heading p {
+    color: #777080;
+
+    line-height: 1.8;
+}
+
+
+/* =========================
+   TIMELINE
+========================= */
+
+.timeline {
+    max-width: 850px;
+
+    margin: auto;
+
+    position: relative;
+}
+
+.timeline::before {
+    content: "";
+
+    position: absolute;
+
+    left: 25px;
+
+    top: 0;
+
+    bottom: 0;
+
+    width: 1px;
+
+    background: #d5cedd;
+}
+
+.timeline-item {
+    display: flex;
+
+    gap: 30px;
+
+    margin-bottom: 50px;
+}
+
+.timeline-dot {
+    min-width: 50px;
+
+    height: 50px;
+
+    border-radius: 50%;
+
+    background: #292638;
+
+    color: white;
+
+    display: grid;
+
+    place-items: center;
+
+    position: relative;
+
+    z-index: 2;
+}
+
+.timeline-card {
+    background: white;
+
+    padding: 30px;
+
+    border-radius: 20px;
+
+    flex: 1;
+
+    box-shadow:
+        0 10px 40px rgba(50,40,60,0.06);
+}
+
+.timeline-card span {
+    font-size: 10px;
+
+    letter-spacing: 3px;
+
+    color: #8b72a8;
+}
+
+.timeline-card h3 {
+    font-size: 32px;
+
+    margin: 10px 0;
+}
+
+.timeline-card p {
+    color: #6d6874;
+
+    line-height: 1.8;
+
+    margin-bottom: 10px;
+}
+
+.handwritten {
+    font-family: "Caveat", cursive;
+
+    font-size: 27px !important;
+
+    color: #8b72a8 !important;
+}
+
+.time-badge {
+    display: inline-block;
+
+    padding: 8px 15px;
+
+    margin-top: 10px;
+
+    background: #eee7f2;
+
+    color: #80679a;
+
+    border-radius: 30px;
+
+    font-size: 12px;
+}
+
+
+/* =========================
+   NICKNAME
+========================= */
+
+.nickname-section {
+    min-height: 80vh;
+
+    display: grid;
+
+    place-items: center;
+
+    text-align: center;
+
+    padding: 100px 20px;
+
+    background: #f1e9dd;
+
+    position: relative;
+}
+
+.nickname-content {
+    max-width: 700px;
+}
+
+.nickname-content > span,
+.paru-content > span,
+.notice-content > span,
+.birthday-content > span {
+    letter-spacing: 4px;
+
+    font-size: 11px;
+
+    color: #8b72a8;
+}
+
+.nickname-content h2 {
+    font-size: clamp(90px, 15vw, 170px);
+
+    line-height: 0.8;
+
+    margin: 60px 0 30px;
+}
+
+.nickname-content > p {
+    color: #706976;
+}
+
+.line {
+    width: 80px;
+
+    height: 1px;
+
+    background: #c9becd;
+
+    margin: 30px auto;
+}
+
+.soft-text {
+    max-width: 500px;
+
+    margin: auto;
+
+    line-height: 1.8;
+}
+
+
+/* =========================
+   PARU
+========================= */
+
+.paru-section {
+    min-height: 80vh;
+
+    display: grid;
+
+    place-items: center;
+
+    text-align: center;
+
+    background: #fffdf9;
+}
+
+.paru-content h2 {
+    font-size: clamp(100px, 16vw, 190px);
+
+    line-height: 0.7;
+
+    color: #8b72a8;
+
+    margin: 60px 0 25px;
+}
+
+.paru-content > p {
+    color: #706976;
+}
+
+.doodles {
+    margin: 45px 0;
+
+    font-size: 30px;
+
+    color: #8b72a8;
+}
+
+
+/* =========================
+   DARK SECTION
+========================= */
+
+.dark-section {
+    background: #252231;
+
+    color: white;
+}
+
+.dark-section .section-heading p {
+    color: #aaa5b5;
+}
+
+.knowledge-grid {
+    max-width: 1100px;
+
+    margin: auto;
+
+    display: grid;
+
+    grid-template-columns: repeat(3, 1fr);
+
+    gap: 20px;
+}
+
+.knowledge-card {
+    position: relative;
+
+    padding: 35px;
+
+    min-height: 260px;
+
+    border-radius: 20px;
+
+    border: 1px solid rgba(255,255,255,0.08);
+
+    background: rgba(255,255,255,0.03);
+
+    transition: 0.4s;
+}
+
+.knowledge-card:hover {
+    transform: translateY(-8px);
+
+    background: rgba(255,255,255,0.06);
+}
+
+.icon {
+    font-size: 35px;
+
+    margin-bottom: 20px;
+}
+
+.knowledge-card h3 {
+    font-size: 32px;
+
+    margin-bottom: 10px;
+}
+
+.knowledge-card p {
+    color: #aaa5b5;
+
+    line-height: 1.7;
+}
+
+.nope {
+    display: block;
+
+    margin-top: 15px;
+
+    color: #c5b4d2;
+
+    font-family: "Caveat", cursive;
+
+    font-size: 23px;
+}
+
+
+/* =========================
+   SNACK GALLERY
+========================= */
+
+.snack-section {
+    background: #f8f4ee;
+}
+
+.gallery {
+    max-width: 1050px;
+
+    margin: auto;
+
+    display: grid;
+
+    grid-template-columns: repeat(2, 1fr);
+
+    gap: 40px;
+}
+
+.memory-card {
+    background: white;
+
+    padding: 12px;
+
+    box-shadow:
+        0 15px 40px rgba(40,30,50,0.08);
+
+    transition: 0.4s;
+}
+
+.memory-card.tilted {
+    transform: rotate(2deg);
+}
+
+.memory-card:hover {
+    transform:
+        rotate(0deg)
+        translateY(-8px);
+}
+
+.memory-card img {
+    width: 100%;
+
+    height: 350px;
+
+    object-fit: cover;
+}
+
+.memory-info {
+    padding: 20px 10px 15px;
+}
+
+.memory-info span {
+    font-size: 9px;
+
+    letter-spacing: 3px;
+
+    color: #8b72a8;
+}
+
+.memory-info h3 {
+    font-size: 32px;
+}
+
+.memory-info p {
+    color: #777080;
+}
+
+
+/* =========================
+   MUSIC
+========================= */
+
+.music-section {
+    background: #e7dfeb;
+}
+
+.music-list {
+    max-width: 750px;
+
+    margin: auto;
+}
+
+.song-card {
+    display: flex;
+
+    align-items: center;
+
+    gap: 20px;
+
+    padding: 22px;
+
+    background: rgba(255,255,255,0.6);
+
+    margin-bottom: 15px;
+
+    border-radius: 15px;
+
+    transition: 0.3s;
+}
+
+.song-card:hover {
+    transform: translateX(8px);
+}
+
+.song-number {
+    width: 45px;
+
+    height: 45px;
+
+    display: grid;
+
+    place-items: center;
+
+    border-radius: 50%;
+
+    background: #292638;
+
+    color: white;
+}
+
+.song-card div:nth-child(2) {
+    flex: 1;
+}
+
+.song-card h3 {
+    font-size: 28px;
+}
+
+.song-card p {
+    color: #777080;
+
+    font-size: 13px;
+}
+
+.song-card > span {
+    font-size: 25px;
+
+    color: #8b72a8;
+}
+
+
+/* =========================
+   SERIES
+========================= */
+
+.series-section {
+    background: #f7f2e9;
+}
+
+.series-grid {
+    max-width: 1000px;
+
+    margin: auto;
+
+    display: grid;
+
+    grid-template-columns: repeat(3, 1fr);
+
+    gap: 20px;
+}
+
+.series-card {
+    min-height: 230px;
+
+    padding: 30px;
+
+    background: white;
+
+    border-radius: 20px;
+
+    box-shadow:
+        0 10px 30px rgba(40,30,50,0.05);
+
+    transition: 0.3s;
+}
+
+.series-card:hover {
+    transform: translateY(-8px);
+}
+
+.series-card > span {
+    color: #8b72a8;
+
+    font-size: 12px;
+}
+
+.series-card h3 {
+    font-size: 35px;
+
+    margin: 45px 0 10px;
+}
+
+.series-card p {
+    color: #777080;
+
+    font-size: 13px;
+}
+
+
+/* =========================
+   BIRTHDAY
+========================= */
+
+.birthday-section {
+    min-height: 90vh;
+
+    padding: 120px 20px;
+
+    display: grid;
+
+    place-items: center;
+
+    text-align: center;
+
+    background:
+        radial-gradient(
+            circle at center,
+            #ddcce7,
+            transparent 55%
+        ),
+        #f7f3ee;
+}
+
+.birthday-content {
+    max-width: 700px;
+}
+
+.birthday-icon {
+    font-size: 70px;
+
+    margin: 25px 0;
+}
+
+.birthday-content h2 {
+    font-size: clamp(60px, 9vw, 110px);
+
+    line-height: 0.8;
+}
+
+.birthday-content > p {
+    color: #706976;
+
+    line-height: 1.8;
+
+    margin: 25px auto;
+}
+
+.birthday-photo {
+    max-width: 450px;
+
+    margin: 40px auto;
+
+    padding: 10px;
+
+    background: white;
+
+    box-shadow:
+        0 20px 50px rgba(40,30,50,0.1);
+}
+
+.birthday-photo img {
+    width: 100%;
+
+    height: 380px;
+
+    object-fit: cover;
+}
+
+
+/* =========================
+   NOTICE
+========================= */
+
+.notice-section {
+    background: #fffdf9;
+
+    text-align: center;
+}
+
+.notice-content {
+    max-width: 800px;
+
+    margin: auto;
+}
+
+.notice-content h2 {
+    font-size: clamp(70px, 11vw, 130px);
+
+    color: #8b72a8;
+
+    line-height: 0.7;
+
+    margin: 60px 0 30px;
+}
+
+.notice-content > p {
+    color: #777080;
+
+    line-height: 1.8;
+}
+
+.notice-list {
+    margin: 60px auto;
+
+    max-width: 650px;
+
+    display: grid;
+
+    gap: 12px;
+}
+
+.notice-list div {
+    background: #f5f0f7;
+
+    padding: 16px 20px;
+
+    border-radius: 12px;
+
+    color: #625b67;
+
+    text-align: left;
+
+    transition: 0.3s;
+}
+
+.notice-list div:hover {
+    transform: translateX(8px);
+
+    background: #ece3f0;
+}
+
+.notice-line {
+    width: 80px;
+
+    height: 1px;
+
+    background: #d0c5d4;
+
+    margin: 50px auto;
+}
+
+
+/* =========================
+   FINAL
+========================= */
+
+.final-section {
+    min-height: 100vh;
+
+    padding: 120px 20px;
+
+    display: grid;
+
+    place-items: center;
+
+    text-align: center;
+
+    background:
+        radial-gradient(
+            circle at center,
+            #4a3d59,
+            transparent 55%
+        ),
+        #242131;
+
+    color: white;
+}
+
+.final-content {
+    max-width: 750px;
+}
+
+.final-symbol {
+    font-size: 70px;
+
+    color: #c8b4d7;
+
+    margin-bottom: 30px;
+}
+
+.final-content h2 {
+    font-size: clamp(60px, 9vw, 100px);
+
+    line-height: 0.8;
+
+    margin-bottom: 50px;
+}
+
+.final-content > p {
+    color: #aaa5b2;
+
+    line-height: 1.8;
+
+    margin-bottom: 12px;
+}
+
+.final-line {
+    width: 80px;
+
+    height: 1px;
+
+    background: #62586d;
+
+    margin: 45px auto;
+}
+
+.special-message {
+    color: #bdb3c3 !important;
+
+    line-height: 2.2 !important;
+}
+
+.final-content h3 {
+    font-size: 30px;
+
+    color: #d3c4dd;
+
+    margin-top: 40px;
+}
+
+.signature {
+    font-family: "Caveat", cursive;
+
+    font-size: 28px;
+
+    color: #b8aabb !important;
+
+    margin-top: 40px;
+}
+
+
+/* =========================
+   FOOTER
+========================= */
+
+footer {
+    background: #181620;
+
+    color: #77717f;
+
+    text-align: center;
+
+    padding: 25px;
+
+    font-size: 12px;
+}
+
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 800px) {
+
+    .section {
+        padding: 90px 20px;
+    }
+
+    .hero h1 {
+        font-size: 72px;
+    }
+
+    .floating-heart {
+        right: 0;
+        font-size: 80px;
+    }
+
+    .timeline-item {
+        gap: 15px;
+    }
+
+    .timeline-dot {
+        min-width: 42px;
+        height: 42px;
+    }
+
+    .timeline::before {
+        left: 21px;
+    }
+
+    .knowledge-grid,
+    .gallery,
+    .series-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .memory-card img {
+        height: 300px;
+    }
+
+    .birthday-photo img {
+        height: 300px;
+    }
+
+    .nickname-content h2 {
+        font-size: 100px;
+    }
+
+}
+
+
+@media (max-width: 500px) {
+
+    .hero h1 {
+        font-size: 62px;
+    }
+
+    .hero-description {
+        font-size: 13px;
+    }
+
+    .timeline-card {
+        padding: 22px;
+    }
+
+    .timeline-card h3 {
+        font-size: 27px;
+    }
+
+    .nickname-content h2 {
+        font-size: 85px;
+    }
+
+}
+```
