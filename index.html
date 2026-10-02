@@ -1,4 +1,3 @@
-```html
 <!DOCTYPE html>
 <html lang="en">
 
@@ -8,19 +7,1689 @@
 
     <title>A Little Corner For You ♡</title>
 
-    <link rel="stylesheet" href="style.css">
-
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-    <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;500;600;700&family=Poppins:wght@300;400;500;600&display=swap"
+    <link
+        href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;500;600;700&family=Poppins:wght@300;400;500;600&display=swap"
         rel="stylesheet">
+
+    <style>
+
+        /* =====================================================
+           RESET
+        ===================================================== */
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: "Poppins", sans-serif;
+            background: #fffafd;
+            color: #332c38;
+            overflow-x: hidden;
+        }
+
+        h1,
+        h2,
+        h3,
+        h4 {
+            font-family: "Caveat", cursive;
+        }
+
+        img {
+            max-width: 100%;
+            display: block;
+        }
+
+        button {
+            font-family: inherit;
+            cursor: pointer;
+        }
+
+
+        /* =====================================================
+           COLORS
+        ===================================================== */
+
+        :root {
+            --white: #fffafd;
+            --pink: #f8dce8;
+            --light-pink: #fcecf3;
+            --lavender: #e9def4;
+            --lavender-dark: #9a7bb5;
+            --purple: #80629c;
+            --text: #332c38;
+            --soft-text: #756b78;
+            --border: #eee1ef;
+        }
+
+
+        /* =====================================================
+           FLOATING BACKGROUND
+        ===================================================== */
+
+        .floating-bg {
+            position: fixed;
+            inset: 0;
+            pointer-events: none;
+            z-index: 0;
+            overflow: hidden;
+        }
+
+        .floating-bg span {
+            position: absolute;
+            color: rgba(154, 123, 181, 0.22);
+            animation: float 7s infinite ease-in-out;
+        }
+
+        .floating-bg span:nth-child(1) {
+            top: 12%;
+            left: 8%;
+            font-size: 18px;
+        }
+
+        .floating-bg span:nth-child(2) {
+            top: 25%;
+            right: 12%;
+            font-size: 14px;
+            animation-delay: 1s;
+        }
+
+        .floating-bg span:nth-child(3) {
+            top: 60%;
+            left: 15%;
+            font-size: 25px;
+            animation-delay: 2s;
+        }
+
+        .floating-bg span:nth-child(4) {
+            top: 78%;
+            right: 20%;
+            font-size: 18px;
+            animation-delay: 3s;
+        }
+
+        .floating-bg span:nth-child(5) {
+            top: 43%;
+            right: 5%;
+            font-size: 13px;
+            animation-delay: 4s;
+        }
+
+        .floating-bg span:nth-child(6) {
+            top: 88%;
+            left: 52%;
+            font-size: 20px;
+            animation-delay: 1.5s;
+        }
+
+        @keyframes float {
+
+            0%,
+            100% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-15px);
+            }
+        }
+
+
+        /* =====================================================
+           HERO
+        ===================================================== */
+
+        .hero {
+            min-height: 100svh;
+
+            position: relative;
+            z-index: 1;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            text-align: center;
+
+            padding: 35px 20px;
+
+            background:
+                radial-gradient(
+                    circle at 15% 20%,
+                    #f8dce8 0,
+                    transparent 30%
+                ),
+                radial-gradient(
+                    circle at 85% 80%,
+                    #e9def4 0,
+                    transparent 32%
+                ),
+                #fffafd;
+
+            overflow: hidden;
+        }
+
+        .hero-content {
+            width: 100%;
+            max-width: 760px;
+        }
+
+        .small-text {
+            font-size: 11px;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: var(--soft-text);
+            margin-bottom: 22px;
+        }
+
+        .hero h1 {
+            font-size: clamp(70px, 12vw, 145px);
+            line-height: 0.78;
+            font-weight: 600;
+        }
+
+        .hero h1 span {
+            color: var(--purple);
+        }
+
+        .hero-description {
+            margin: 32px auto 20px;
+            line-height: 1.9;
+            color: var(--soft-text);
+            font-size: 14px;
+        }
+
+
+        /* =====================================================
+           LOVE THOUGHT
+        ===================================================== */
+
+        .love-thought {
+            max-width: 570px;
+            margin: 25px auto 28px;
+
+            padding: 18px 22px;
+
+            border-left: 2px solid #d9b8d9;
+            border-right: 2px solid #efcbdc;
+
+            background: rgba(255, 255, 255, 0.5);
+            border-radius: 15px;
+        }
+
+        .love-thought span {
+            display: block;
+
+            font-size: 9px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+
+            color: var(--lavender-dark);
+
+            margin-bottom: 8px;
+        }
+
+        .love-thought p {
+            font-family: "Caveat", cursive;
+
+            font-size: 25px;
+            line-height: 1.25;
+
+            color: #75627e;
+        }
+
+
+        /* =====================================================
+           ENTER BUTTON
+        ===================================================== */
+
+        .main-btn {
+            border: none;
+
+            padding: 14px 25px;
+
+            border-radius: 50px;
+
+            background: var(--purple);
+
+            color: white;
+
+            transition:
+                transform 0.3s ease,
+                box-shadow 0.3s ease;
+        }
+
+        .main-btn:hover {
+            transform: translateY(-4px);
+
+            box-shadow:
+                0 12px 25px rgba(128, 98, 156, 0.25);
+        }
+
+        .main-btn:active {
+            transform: scale(0.96);
+        }
+
+        .floating-heart {
+            position: absolute;
+
+            font-size: 120px;
+
+            color: rgba(154, 123, 181, 0.1);
+
+            right: 8%;
+            top: 18%;
+
+            animation: float 5s infinite ease-in-out;
+        }
+
+        .floating-star {
+            position: absolute;
+
+            color: var(--purple);
+
+            opacity: 0.4;
+
+            animation: float 4s infinite ease-in-out;
+        }
+
+        .star1 {
+            top: 20%;
+            left: 15%;
+        }
+
+        .star2 {
+            bottom: 20%;
+            right: 15%;
+            font-size: 30px;
+        }
+
+        .star3 {
+            bottom: 30%;
+            left: 20%;
+        }
+
+
+        /* =====================================================
+           SECTIONS
+        ===================================================== */
+
+        .section {
+            position: relative;
+            z-index: 1;
+            padding: 80px 7%;
+        }
+
+        .section-heading {
+            max-width: 700px;
+            margin: 0 auto 50px;
+            text-align: center;
+        }
+
+        .section-heading span {
+            font-size: 10px;
+            letter-spacing: 3px;
+            color: var(--purple);
+        }
+
+        .section-heading h2 {
+            font-size: clamp(48px, 7vw, 78px);
+            line-height: 0.9;
+            margin: 12px 0 18px;
+        }
+
+        .section-heading p {
+            color: var(--soft-text);
+            line-height: 1.7;
+            font-size: 13px;
+        }
+
+
+        /* =====================================================
+           STORY / TIMELINE
+        ===================================================== */
+
+        .story-section {
+            background: #fffafd;
+        }
+
+        .timeline {
+            max-width: 850px;
+            margin: auto;
+            position: relative;
+        }
+
+        .timeline::before {
+            content: "";
+
+            position: absolute;
+
+            left: 24px;
+            top: 0;
+            bottom: 0;
+
+            width: 2px;
+
+            background:
+                linear-gradient(
+                    to bottom,
+                    #f3cbdc,
+                    #d8c5e9
+                );
+        }
+
+        .timeline-item {
+            display: flex;
+            gap: 25px;
+
+            margin-bottom: 28px;
+        }
+
+        .timeline-dot {
+            min-width: 49px;
+            height: 49px;
+
+            border-radius: 50%;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #f6d7e5,
+                    #e5d8f1
+                );
+
+            display: grid;
+            place-items: center;
+
+            position: relative;
+            z-index: 2;
+
+            border: 4px solid #fffafd;
+        }
+
+        .timeline-card {
+            background: white;
+
+            padding: 24px;
+
+            border-radius: 18px;
+
+            flex: 1;
+
+            border: 1px solid var(--border);
+
+            box-shadow:
+                0 8px 25px rgba(90, 65, 100, 0.06);
+        }
+
+        .timeline-card > span {
+            font-size: 9px;
+            letter-spacing: 2px;
+            color: var(--purple);
+        }
+
+        .timeline-card h3 {
+            font-size: 30px;
+            margin: 8px 0;
+            line-height: 1;
+        }
+
+        .timeline-card p {
+            color: var(--soft-text);
+            line-height: 1.7;
+            margin-bottom: 8px;
+            font-size: 13px;
+        }
+
+        .handwritten {
+            font-family: "Caveat", cursive;
+            font-size: 25px !important;
+            color: var(--purple) !important;
+        }
+
+        .time-badge {
+            display: inline-block;
+
+            padding: 7px 13px;
+
+            margin-top: 5px;
+
+            background: var(--light-pink);
+
+            color: var(--purple);
+
+            border-radius: 30px;
+
+            font-size: 11px;
+        }
+
+
+        /* =====================================================
+           CONVERSATION TRANSITION
+        ===================================================== */
+
+        .conversation-transition {
+            max-width: 760px;
+
+            margin: 65px auto 10px;
+
+            padding-top: 45px;
+
+            text-align: center;
+
+            border-top: 1px dashed #dcc9df;
+        }
+
+        .conversation-intro > span {
+            font-size: 9px;
+            letter-spacing: 3px;
+            color: var(--purple);
+        }
+
+        .conversation-intro h3 {
+            font-size: 46px;
+            line-height: 0.95;
+
+            color: #66516f;
+
+            margin: 15px 0;
+        }
+
+        .conversation-intro p {
+            max-width: 500px;
+            margin: auto;
+
+            color: #817683;
+
+            font-size: 13px;
+            line-height: 1.7;
+        }
+
+        .chat-journey {
+            max-width: 580px;
+            margin: 40px auto 0;
+        }
+
+        .chat-step {
+            display: flex;
+
+            align-items: center;
+
+            text-align: left;
+
+            gap: 18px;
+
+            padding: 20px;
+
+            background: rgba(255, 255, 255, 0.85);
+
+            border: 1px solid var(--border);
+
+            border-radius: 18px;
+
+            box-shadow:
+                0 8px 25px rgba(100, 70, 110, 0.05);
+
+            transition:
+                transform 0.3s ease,
+                box-shadow 0.3s ease;
+        }
+
+        .chat-step:hover {
+            transform: translateY(-4px);
+
+            box-shadow:
+                0 13px 30px rgba(100, 70, 110, 0.09);
+        }
+
+        .chat-icon {
+            width: 52px;
+            height: 52px;
+
+            min-width: 52px;
+
+            display: grid;
+            place-items: center;
+
+            border-radius: 16px;
+
+            font-size: 25px;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #f8dce8,
+                    #e9def4
+                );
+        }
+
+        .chat-step span {
+            font-size: 8px;
+            letter-spacing: 2px;
+            color: var(--purple);
+        }
+
+        .chat-step h4 {
+            font-size: 32px;
+            line-height: 1;
+            margin: 5px 0;
+        }
+
+        .chat-step p {
+            color: #817683;
+            font-size: 12px;
+        }
+
+        .journey-arrow {
+            height: 42px;
+
+            display: grid;
+            place-items: center;
+
+            color: #b59ac1;
+
+            font-size: 20px;
+
+            animation:
+                journeyPulse 2s infinite ease-in-out;
+        }
+
+        @keyframes journeyPulse {
+
+            0%,
+            100% {
+                transform: translateY(0);
+                opacity: 0.5;
+            }
+
+            50% {
+                transform: translateY(5px);
+                opacity: 1;
+            }
+        }
+
+        .journey-end {
+            margin-top: 15px;
+
+            padding: 35px 20px;
+
+            border-radius: 22px;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #fcecf3,
+                    #eee5f7
+                );
+
+            border: 1px solid #eadceb;
+        }
+
+        .end-dots {
+            color: #a98bb5;
+
+            letter-spacing: 8px;
+
+            margin-bottom: 12px;
+        }
+
+        .journey-end h3 {
+            font-size: 38px;
+            color: #74567e;
+            line-height: 1;
+        }
+
+        .journey-end p {
+            margin-top: 12px;
+
+            color: #806f83;
+
+            font-size: 12px;
+
+            line-height: 1.7;
+        }
+
+        .infinity {
+            margin-top: 20px;
+
+            font-family: "Caveat", cursive;
+
+            font-size: 55px;
+
+            color: #b47e9e;
+        }
+
+
+        /* =====================================================
+           THINGS SHE LIKES
+        ===================================================== */
+
+        .likes-section {
+            background:
+                linear-gradient(
+                    135deg,
+                    #f2e8f7,
+                    #fdebf3
+                );
+        }
+
+        .knowledge-grid {
+            max-width: 1100px;
+
+            margin: auto;
+
+            display: grid;
+
+            grid-template-columns:
+                repeat(3, 1fr);
+
+            gap: 18px;
+        }
+
+        .knowledge-card {
+            padding: 28px;
+
+            min-height: 215px;
+
+            border-radius: 20px;
+
+            border: 1px solid rgba(154, 123, 181, 0.12);
+
+            background:
+                rgba(255, 255, 255, 0.65);
+
+            transition: 0.35s;
+
+            box-shadow:
+                0 8px 25px rgba(100, 70, 110, 0.05);
+        }
+
+        .knowledge-card:hover {
+            transform: translateY(-6px);
+            background: white;
+        }
+
+        .icon {
+            font-size: 32px;
+            margin-bottom: 14px;
+        }
+
+        .knowledge-card h3 {
+            font-size: 30px;
+            margin-bottom: 8px;
+        }
+
+        .knowledge-card p {
+            color: var(--soft-text);
+            line-height: 1.6;
+            font-size: 13px;
+        }
+
+        .nope {
+            display: block;
+
+            margin-top: 12px;
+
+            color: #b77e9d;
+
+            font-family: "Caveat", cursive;
+
+            font-size: 21px;
+        }
+
+
+        /* =====================================================
+           SNACK MUSEUM
+        ===================================================== */
+
+        .snack-section {
+            background: #fffafd;
+        }
+
+        .gallery {
+            max-width: 1050px;
+
+            margin: auto;
+
+            display: grid;
+
+            grid-template-columns:
+                repeat(2, 1fr);
+
+            gap: 28px;
+        }
+
+        .memory-card {
+            background: white;
+
+            padding: 10px;
+
+            border: 1px solid #f1e5ef;
+
+            box-shadow:
+                0 12px 30px rgba(70, 45, 80, 0.07);
+
+            transition: 0.35s;
+        }
+
+        .memory-card:nth-child(even) {
+            transform: rotate(1deg);
+        }
+
+        .memory-card:hover {
+            transform:
+                rotate(0deg)
+                translateY(-6px);
+        }
+
+        .memory-card img {
+            width: 100%;
+
+            height: 310px;
+
+            object-fit: cover;
+
+            border-radius: 3px;
+        }
+
+        .memory-info {
+            padding: 17px 8px 10px;
+        }
+
+        .memory-info span {
+            font-size: 8px;
+
+            letter-spacing: 2px;
+
+            color: var(--purple);
+        }
+
+        .memory-info h3 {
+            font-size: 29px;
+
+            margin: 4px 0;
+        }
+
+        .memory-info p {
+            color: var(--soft-text);
+
+            font-size: 13px;
+        }
+
+
+        /* =====================================================
+           MUSIC
+        ===================================================== */
+
+        .music-section {
+            background: #f7eff9;
+        }
+
+        .music-list {
+            max-width: 750px;
+            margin: auto;
+        }
+
+        .song-card {
+            display: flex;
+
+            align-items: center;
+
+            gap: 17px;
+
+            padding: 18px;
+
+            background:
+                rgba(255, 255, 255, 0.8);
+
+            margin-bottom: 12px;
+
+            border-radius: 15px;
+
+            border: 1px solid #eee1f0;
+
+            transition: 0.3s;
+        }
+
+        .song-card:hover {
+            transform: translateX(5px);
+        }
+
+        .song-number {
+            width: 40px;
+            height: 40px;
+
+            display: grid;
+            place-items: center;
+
+            border-radius: 50%;
+
+            background: var(--lavender);
+
+            color: var(--purple);
+
+            font-size: 12px;
+        }
+
+        .song-info {
+            flex: 1;
+        }
+
+        .song-card h3 {
+            font-size: 27px;
+        }
+
+        .song-card p {
+            color: var(--soft-text);
+            font-size: 12px;
+        }
+
+        .song-card > span {
+            font-size: 23px;
+            color: var(--purple);
+        }
+
+
+        /* =====================================================
+           WEB SERIES
+        ===================================================== */
+
+        .series-section {
+            background: #fffafd;
+        }
+
+        .series-grid {
+            max-width: 1000px;
+
+            margin: auto;
+
+            display: grid;
+
+            grid-template-columns:
+                repeat(3, 1fr);
+
+            gap: 18px;
+        }
+
+        .series-card {
+            min-height: 200px;
+
+            padding: 25px;
+
+            background:
+                linear-gradient(
+                    145deg,
+                    #fff,
+                    #fdf2f8
+                );
+
+            border-radius: 20px;
+
+            border: 1px solid #f0e3ef;
+
+            box-shadow:
+                0 8px 25px rgba(80, 50, 90, 0.05);
+
+            transition: 0.3s;
+        }
+
+        .series-card:hover {
+            transform: translateY(-6px);
+        }
+
+        .series-card > span {
+            color: var(--purple);
+            font-size: 11px;
+        }
+
+        .series-card h3 {
+            font-size: 32px;
+
+            margin: 35px 0 7px;
+        }
+
+        .series-card p {
+            color: var(--soft-text);
+            font-size: 12px;
+        }
+
+
+        /* =====================================================
+           BIRTHDAY
+        ===================================================== */
+
+        .birthday-section {
+            min-height: 75vh;
+
+            padding: 80px 20px;
+
+            display: grid;
+            place-items: center;
+
+            text-align: center;
+
+            background:
+                radial-gradient(
+                    circle at center,
+                    #f5dce8,
+                    transparent 55%
+                ),
+                #fffafd;
+        }
+
+        .birthday-content {
+            max-width: 700px;
+        }
+
+        .birthday-content > span {
+            letter-spacing: 3px;
+
+            font-size: 10px;
+
+            color: var(--purple);
+        }
+
+        .birthday-icon {
+            font-size: 60px;
+            margin: 20px 0;
+        }
+
+        .birthday-content h2 {
+            font-size:
+                clamp(58px, 9vw, 100px);
+
+            line-height: 0.8;
+        }
+
+        .birthday-content > p {
+            color: var(--soft-text);
+
+            line-height: 1.7;
+
+            margin: 20px auto;
+        }
+
+        .birthday-photo {
+            max-width: 430px;
+
+            margin: 30px auto;
+
+            padding: 8px;
+
+            background: white;
+
+            border: 1px solid #f0e0eb;
+
+            box-shadow:
+                0 15px 35px rgba(80, 50, 90, 0.08);
+        }
+
+        .birthday-photo img {
+            width: 100%;
+
+            height: 330px;
+
+            object-fit: cover;
+        }
+
+
+        /* =====================================================
+           THINGS I NOTICE
+        ===================================================== */
+
+        .notice-section {
+            background: #fdf7fb;
+
+            text-align: center;
+        }
+
+        .notice-content {
+            max-width: 800px;
+
+            margin: auto;
+        }
+
+        .notice-content > span {
+            letter-spacing: 3px;
+
+            font-size: 10px;
+
+            color: var(--purple);
+        }
+
+        .notice-content h2 {
+            font-size:
+                clamp(65px, 10vw, 120px);
+
+            color: var(--purple);
+
+            line-height: 0.7;
+
+            margin: 50px 0 25px;
+        }
+
+        .notice-content > p {
+            color: var(--soft-text);
+
+            line-height: 1.7;
+        }
+
+        .notice-list {
+            margin: 45px auto;
+
+            max-width: 650px;
+
+            display: grid;
+
+            gap: 10px;
+        }
+
+        .notice-list div {
+            background: white;
+
+            padding: 14px 18px;
+
+            border-radius: 12px;
+
+            border: 1px solid #f0e4ef;
+
+            color: #625968;
+
+            text-align: left;
+
+            transition: 0.3s;
+        }
+
+        .notice-list div:hover {
+            transform: translateX(5px);
+
+            background: #fff2f8;
+        }
+
+        .notice-line {
+            width: 60px;
+
+            height: 1px;
+
+            background: #d9c6d9;
+
+            margin: 40px auto;
+        }
+
+
+        /* =====================================================
+           FINAL
+        ===================================================== */
+
+        .final-section {
+            min-height: 90vh;
+
+            padding: 90px 20px;
+
+            display: grid;
+            place-items: center;
+
+            text-align: center;
+
+            background:
+                radial-gradient(
+                    circle at center,
+                    #5b4764,
+                    transparent 55%
+                ),
+                #302838;
+
+            color: white;
+        }
+
+        .final-content {
+            max-width: 750px;
+        }
+
+        .final-symbol {
+            font-size: 60px;
+
+            color: #f1cfe0;
+
+            margin-bottom: 25px;
+        }
+
+        .final-content h2 {
+            font-size:
+                clamp(55px, 9vw, 95px);
+
+            line-height: 0.8;
+
+            margin-bottom: 40px;
+        }
+
+        .final-content > p {
+            color: #d3cbd5;
+
+            line-height: 1.7;
+
+            margin-bottom: 10px;
+        }
+
+        .final-line {
+            width: 65px;
+
+            height: 1px;
+
+            background: #817387;
+
+            margin: 38px auto;
+        }
+
+        .special-message {
+            color: #d7ceda !important;
+
+            line-height: 2 !important;
+        }
+
+        .final-content h3 {
+            font-size: 28px;
+
+            color: #f1d8e5;
+
+            margin-top: 30px;
+        }
+
+        .signature {
+            font-family: "Caveat", cursive;
+
+            font-size: 26px;
+
+            color: #e0cddd !important;
+
+            margin-top: 30px;
+        }
+
+
+        /* =====================================================
+           FOOTER
+        ===================================================== */
+
+        footer {
+            background: #241d29;
+
+            color: #a99eac;
+
+            text-align: center;
+
+            padding: 20px;
+
+            font-size: 11px;
+        }
+
+
+        /* =====================================================
+           REVEAL ANIMATION
+        ===================================================== */
+
+        .reveal {
+            opacity: 0;
+
+            transform: translateY(20px);
+
+            transition:
+                opacity 0.7s ease,
+                transform 0.7s ease;
+        }
+
+        .reveal.show {
+            opacity: 1;
+
+            transform: translateY(0);
+        }
+
+
+        /* =====================================================
+           TABLET
+        ===================================================== */
+
+        @media (max-width: 800px) {
+
+            .section {
+                padding: 65px 20px;
+            }
+
+            .hero {
+                min-height: 100svh;
+            }
+
+            .hero h1 {
+                font-size: 70px;
+            }
+
+            .knowledge-grid,
+            .series-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .gallery {
+                grid-template-columns: 1fr 1fr;
+
+                gap: 18px;
+            }
+
+            .memory-card img {
+                height: 260px;
+            }
+        }
+
+
+        /* =====================================================
+           MOBILE
+        ===================================================== */
+
+        @media (max-width: 550px) {
+
+            .section {
+                padding: 52px 16px;
+            }
+
+            .section-heading {
+                margin-bottom: 30px;
+            }
+
+            .section-heading h2 {
+                font-size: 46px;
+
+                margin: 8px 0 14px;
+            }
+
+            .section-heading p {
+                font-size: 12px;
+            }
+
+
+            /* Hero */
+
+            .hero {
+                min-height: 100svh;
+
+                padding:
+                    25px 17px;
+            }
+
+            .small-text {
+                font-size: 8px;
+
+                letter-spacing: 2px;
+
+                margin-bottom: 17px;
+            }
+
+            .hero h1 {
+                font-size: 57px;
+
+                line-height: 0.82;
+            }
+
+            .hero-description {
+                font-size: 12px;
+
+                line-height: 1.7;
+
+                margin: 23px auto 15px;
+            }
+
+            .love-thought {
+                margin: 18px auto 23px;
+
+                padding: 14px 15px;
+            }
+
+            .love-thought p {
+                font-size: 21px;
+                line-height: 1.25;
+            }
+
+            .main-btn {
+                font-size: 11px;
+
+                padding:
+                    12px 19px;
+            }
+
+            .floating-heart {
+                font-size: 60px;
+
+                right: -5px;
+
+                top: 16%;
+            }
+
+
+            /* Timeline */
+
+            .timeline::before {
+                left: 19px;
+            }
+
+            .timeline-item {
+                gap: 12px;
+
+                margin-bottom: 20px;
+            }
+
+            .timeline-dot {
+                min-width: 39px;
+
+                width: 39px;
+
+                height: 39px;
+
+                font-size: 14px;
+
+                border-width: 3px;
+            }
+
+            .timeline-card {
+                padding: 17px;
+
+                border-radius: 14px;
+            }
+
+            .timeline-card h3 {
+                font-size: 24px;
+
+                line-height: 1;
+            }
+
+            .timeline-card p {
+                font-size: 11px;
+
+                line-height: 1.6;
+            }
+
+            .timeline-card > span {
+                font-size: 7px;
+            }
+
+            .handwritten {
+                font-size: 21px !important;
+            }
+
+
+            /* Conversation */
+
+            .conversation-transition {
+                margin-top: 42px;
+
+                padding-top: 30px;
+            }
+
+            .conversation-intro h3 {
+                font-size: 35px;
+            }
+
+            .conversation-intro p {
+                font-size: 11px;
+            }
+
+            .chat-journey {
+                margin-top: 28px;
+            }
+
+            .chat-step {
+                padding: 14px;
+
+                gap: 12px;
+
+                border-radius: 15px;
+            }
+
+            .chat-icon {
+                width: 43px;
+                height: 43px;
+
+                min-width: 43px;
+
+                border-radius: 13px;
+
+                font-size: 19px;
+            }
+
+            .chat-step h4 {
+                font-size: 27px;
+            }
+
+            .chat-step p {
+                font-size: 10px;
+            }
+
+            .chat-step span {
+                font-size: 7px;
+            }
+
+            .journey-arrow {
+                height: 30px;
+            }
+
+            .journey-end {
+                padding: 26px 14px;
+            }
+
+            .journey-end h3 {
+                font-size: 31px;
+            }
+
+            .journey-end p {
+                font-size: 11px;
+            }
+
+            .infinity {
+                font-size: 45px;
+            }
+
+
+            /* Likes */
+
+            .knowledge-grid {
+                grid-template-columns: 1fr;
+
+                gap: 11px;
+            }
+
+            .knowledge-card {
+                min-height: auto;
+
+                padding: 21px;
+            }
+
+            .knowledge-card h3 {
+                font-size: 27px;
+            }
+
+
+            /* Gallery */
+
+            .gallery {
+                grid-template-columns: 1fr;
+
+                gap: 20px;
+            }
+
+            .memory-card:nth-child(even) {
+                transform: none;
+            }
+
+            .memory-card img {
+                height: 270px;
+            }
+
+
+            /* Music */
+
+            .song-card {
+                padding: 14px;
+
+                gap: 11px;
+            }
+
+            .song-number {
+                width: 35px;
+                height: 35px;
+
+                min-width: 35px;
+            }
+
+            .song-card h3 {
+                font-size: 23px;
+            }
+
+            .song-card p {
+                font-size: 10px;
+            }
+
+
+            /* Series */
+
+            .series-grid {
+                grid-template-columns: 1fr;
+
+                gap: 11px;
+            }
+
+            .series-card {
+                min-height: 145px;
+
+                padding: 20px;
+            }
+
+            .series-card h3 {
+                margin: 25px 0 5px;
+            }
+
+
+            /* Birthday */
+
+            .birthday-section {
+                min-height: 65vh;
+
+                padding: 60px 18px;
+            }
+
+            .birthday-icon {
+                font-size: 50px;
+
+                margin: 14px 0;
+            }
+
+            .birthday-content h2 {
+                font-size: 61px;
+            }
+
+            .birthday-photo {
+                margin: 23px auto;
+            }
+
+            .birthday-photo img {
+                height: 270px;
+            }
+
+
+            /* Notice */
+
+            .notice-content h2 {
+                font-size: 68px;
+
+                margin: 40px 0 20px;
+            }
+
+            .notice-list {
+                margin: 32px auto;
+
+                gap: 8px;
+            }
+
+            .notice-list div {
+                padding: 11px 13px;
+
+                font-size: 11px;
+            }
+
+
+            /* Final */
+
+            .final-section {
+                min-height: 80vh;
+
+                padding: 70px 17px;
+            }
+
+            .final-symbol {
+                font-size: 50px;
+            }
+
+            .final-content h2 {
+                font-size: 57px;
+
+                margin-bottom: 30px;
+            }
+
+            .special-message {
+                font-size: 12px;
+
+                line-height: 1.9 !important;
+            }
+
+            .final-content h3 {
+                font-size: 24px;
+            }
+
+            .signature {
+                font-size: 24px;
+            }
+        }
+
+
+        /* =====================================================
+           VERY SMALL PHONES
+        ===================================================== */
+
+        @media (max-width: 360px) {
+
+            .hero h1 {
+                font-size: 50px;
+            }
+
+            .section-heading h2 {
+                font-size: 41px;
+            }
+
+            .love-thought p {
+                font-size: 19px;
+            }
+
+            .conversation-intro h3 {
+                font-size: 32px;
+            }
+        }
+
+    </style>
 </head>
+
 
 <body>
 
-    <!-- Floating background -->
-    <div class="stars">
+
+    <!-- =====================================================
+         FLOATING BACKGROUND
+    ===================================================== -->
+
+    <div class="floating-bg">
         <span>✦</span>
         <span>✧</span>
         <span>♡</span>
@@ -30,9 +1699,9 @@
     </div>
 
 
-    <!-- =========================
+    <!-- =====================================================
          HERO
-    ========================== -->
+    ===================================================== -->
 
     <section class="hero">
 
@@ -42,11 +1711,13 @@
                 a little something made for you...
             </p>
 
+
             <h1>
                 A Little<br>
                 <span>Corner</span><br>
                 For You ♡
             </h1>
+
 
             <p class="hero-description">
                 You already know how I feel about you.
@@ -56,32 +1727,71 @@
                 I just wanted to make something about you.
             </p>
 
-            <button class="main-btn" id="enterBtn">
+
+            <!-- Quote -->
+
+            <div class="love-thought">
+
+                <span>just a thought...</span>
+
+                <p>
+                    “Liking someone may be attachment,
+                    but choosing someone again and again
+                    and again is love.”
+                </p>
+
+            </div>
+
+
+            <!-- WORKING BUTTON -->
+
+            <button
+                class="main-btn"
+                id="enterBtn">
+
                 Enter our little universe ✨
+
             </button>
 
         </div>
 
-        <div class="floating-heart">♡</div>
 
-        <div class="floating-star star1">✦</div>
-        <div class="floating-star star2">✧</div>
-        <div class="floating-star star3">✦</div>
+        <div class="floating-heart">
+            ♡
+        </div>
+
+        <div class="floating-star star1">
+            ✦
+        </div>
+
+        <div class="floating-star star2">
+            ✧
+        </div>
+
+        <div class="floating-star star3">
+            ✦
+        </div>
 
     </section>
 
 
-    <!-- =========================
-         OUR STORY
-    ========================== -->
+    <!-- =====================================================
+         STORY
+    ===================================================== -->
 
-    <section id="story" class="section story-section">
+    <section
+        id="story"
+        class="section story-section">
 
         <div class="section-heading">
 
-            <span>01 · HOW IT STARTED</span>
+            <span>
+                01 · HOW IT STARTED
+            </span>
 
-            <h2>Our Little Internet Story</h2>
+            <h2>
+                Our Little Internet Story
+            </h2>
 
             <p>
                 We may not have hundreds of pictures together...
@@ -93,9 +1803,10 @@
 
         <div class="timeline">
 
+
             <!-- 2 JUNE -->
 
-            <div class="timeline-item">
+            <div class="timeline-item reveal">
 
                 <div class="timeline-dot">
                     👀
@@ -103,7 +1814,9 @@
 
                 <div class="timeline-card">
 
-                    <span>02 JUNE 2024</span>
+                    <span>
+                        02 JUNE 2024
+                    </span>
 
                     <h3>
                         The first time I saw you on Snap.
@@ -125,7 +1838,7 @@
 
             <!-- SEPTEMBER -->
 
-            <div class="timeline-item">
+            <div class="timeline-item reveal">
 
                 <div class="timeline-dot">
                     🌙
@@ -133,7 +1846,9 @@
 
                 <div class="timeline-card">
 
-                    <span>21 → 22 SEPTEMBER</span>
+                    <span>
+                        21 → 22 SEPTEMBER
+                    </span>
 
                     <h3>
                         The conversation that refused to end.
@@ -165,7 +1880,7 @@
 
             <!-- JANUARY 7 -->
 
-            <div class="timeline-item">
+            <div class="timeline-item reveal">
 
                 <div class="timeline-dot">
                     🏫
@@ -173,7 +1888,9 @@
 
                 <div class="timeline-card">
 
-                    <span>07 JANUARY</span>
+                    <span>
+                        07 JANUARY
+                    </span>
 
                     <h3>
                         From conversations to seeing you at school.
@@ -200,7 +1917,7 @@
 
             <!-- JANUARY 23 -->
 
-            <div class="timeline-item">
+            <div class="timeline-item reveal">
 
                 <div class="timeline-dot">
                     💌
@@ -208,7 +1925,9 @@
 
                 <div class="timeline-card">
 
-                    <span>23 JANUARY</span>
+                    <span>
+                        23 JANUARY
+                    </span>
 
                     <h3>
                         A reply I didn't forget.
@@ -230,57 +1949,206 @@
 
             </div>
 
-        </div>
 
-    </section>
+            <!-- =================================================
+                 CONVERSATION JOURNEY
+            ================================================= -->
+
+            <div class="conversation-transition reveal">
+
+                <div class="conversation-intro">
+
+                    <span>
+                        AND THEN...
+                    </span>
+
+                    <h3>
+                        The app changed.
+                        <br>
+                        The conversations didn't.
+                    </h3>
+
+                    <p>
+                        From one little chat box to another,
+                        somehow we just kept talking.
+                    </p>
+
+                </div>
 
 
-    <!-- =========================
-         NICKNAME
-    ========================== -->
+                <div class="chat-journey">
 
-    <section class="nickname-section">
 
-        <div class="nickname-content">
+                    <!-- SNAPCHAT -->
 
-            <span>02 · THE NAMES I CALL YOU</span>
+                    <div class="chat-step reveal">
 
-            <h2>
-                “No One”
-            </h2>
+                        <div class="chat-icon">
+                            👻
+                        </div>
 
-            <p>
-                My nickname for you.
-            </p>
+                        <div>
 
-            <div class="nickname-divider">
-                ♡
+                            <span>
+                                WHERE IT STARTED
+                            </span>
+
+                            <h4>
+                                Snapchat
+                            </h4>
+
+                            <p>
+                                The first little beginning.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="journey-arrow">
+                        ↓
+                    </div>
+
+
+                    <!-- TELEGRAM -->
+
+                    <div class="chat-step reveal">
+
+                        <div class="chat-icon">
+                            ✈️
+                        </div>
+
+                        <div>
+
+                            <span>
+                                THEN WE MOVED
+                            </span>
+
+                            <h4>
+                                Telegram
+                            </h4>
+
+                            <p>
+                                Different app.
+                                Same conversations.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="journey-arrow">
+                        ↓
+                    </div>
+
+
+                    <!-- WHATSAPP -->
+
+                    <div class="chat-step reveal">
+
+                        <div class="chat-icon">
+                            💬
+                        </div>
+
+                        <div>
+
+                            <span>
+                                AND THEN
+                            </span>
+
+                            <h4>
+                                WhatsApp
+                            </h4>
+
+                            <p>
+                                More messages.
+                                More random conversations.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="journey-arrow">
+                        ↓
+                    </div>
+
+
+                    <!-- SMS -->
+
+                    <div class="chat-step reveal">
+
+                        <div class="chat-icon">
+                            💌
+                        </div>
+
+                        <div>
+
+                            <span>
+                                EVEN HERE
+                            </span>
+
+                            <h4>
+                                SMS
+                            </h4>
+
+                            <p>
+                                Because apparently,
+                                changing platforms wasn't enough.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- END -->
+
+                    <div class="journey-end">
+
+                        <div class="end-dots">
+                            • • •
+                        </div>
+
+                        <h3>
+                            And it never really ended.
+                        </h3>
+
+                        <p>
+                            The platform kept changing.
+                            <br>
+                            We just kept talking.
+                        </p>
+
+                        <div class="infinity">
+                            ∞
+                        </div>
+
+                    </div>
+
+                </div>
+
             </div>
 
-            <h3>
-                Paru
-            </h3>
-
-            <p class="soft-text">
-                Two little names for the same person
-                who somehow became a collection of
-                very specific memories.
-            </p>
-
         </div>
 
     </section>
 
 
-    <!-- =========================
+    <!-- =====================================================
          THINGS SHE LIKES
-    ========================== -->
+    ===================================================== -->
 
-    <section class="section dark-section">
+    <section class="section likes-section">
 
         <div class="section-heading">
 
-            <span>03 · THINGS I REMEMBER</span>
+            <span>
+                02 · THINGS I REMEMBER
+            </span>
 
             <h2>
                 Things That Are Very Much You
@@ -295,11 +2163,16 @@
 
         <div class="knowledge-grid">
 
-            <div class="knowledge-card">
 
-                <div class="icon">🎧</div>
+            <div class="knowledge-card reveal">
 
-                <h3>Music</h3>
+                <div class="icon">
+                    🎧
+                </div>
+
+                <h3>
+                    Music
+                </h3>
 
                 <p>
                     Songs you like, songs you recommend,
@@ -310,11 +2183,15 @@
             </div>
 
 
-            <div class="knowledge-card">
+            <div class="knowledge-card reveal">
 
-                <div class="icon">🎬</div>
+                <div class="icon">
+                    🎬
+                </div>
 
-                <h3>Web Series</h3>
+                <h3>
+                    Web Series
+                </h3>
 
                 <p>
                     You can definitely get invested
@@ -324,11 +2201,15 @@
             </div>
 
 
-            <div class="knowledge-card">
+            <div class="knowledge-card reveal">
 
-                <div class="icon">🎞️</div>
+                <div class="icon">
+                    🎞️
+                </div>
 
-                <h3>Jab We Met</h3>
+                <h3>
+                    Jab We Met
+                </h3>
 
                 <p>
                     Your favourite Bollywood movie.
@@ -338,11 +2219,15 @@
             </div>
 
 
-            <div class="knowledge-card">
+            <div class="knowledge-card reveal">
 
-                <div class="icon">🍫</div>
+                <div class="icon">
+                    🍫
+                </div>
 
-                <h3>Chocolates</h3>
+                <h3>
+                    Chocolates
+                </h3>
 
                 <p>
                     Important enough to deserve
@@ -352,11 +2237,15 @@
             </div>
 
 
-            <div class="knowledge-card">
+            <div class="knowledge-card reveal">
 
-                <div class="icon">🥙</div>
+                <div class="icon">
+                    🥙
+                </div>
 
-                <h3>Pani Puri</h3>
+                <h3>
+                    Pani Puri
+                </h3>
 
                 <p>
                     One of the many members of
@@ -366,11 +2255,15 @@
             </div>
 
 
-            <div class="knowledge-card maths-card">
+            <div class="knowledge-card reveal">
 
-                <div class="icon">📐</div>
+                <div class="icon">
+                    📐
+                </div>
 
-                <h3>Maths</h3>
+                <h3>
+                    Maths
+                </h3>
 
                 <p>
                     And then there's maths...
@@ -387,15 +2280,17 @@
     </section>
 
 
-    <!-- =========================
+    <!-- =====================================================
          SNACK MUSEUM
-    ========================== -->
+    ===================================================== -->
 
     <section class="section snack-section">
 
         <div class="section-heading">
 
-            <span>04 · VERY IMPORTANT THINGS</span>
+            <span>
+                03 · VERY IMPORTANT THINGS
+            </span>
 
             <h2>
                 The Snack Museum 🍫
@@ -411,13 +2306,18 @@
 
         <div class="gallery">
 
-            <div class="memory-card">
 
-                <img src="assets/chocolate1.jpg" alt="Chocolate">
+            <div class="memory-card reveal">
+
+                <img
+                    src="assets/chocolate1.jpg"
+                    alt="Chocolate">
 
                 <div class="memory-info">
 
-                    <span>EXHIBIT #001</span>
+                    <span>
+                        EXHIBIT #001
+                    </span>
 
                     <h3>
                         The Chocolate
@@ -432,13 +2332,17 @@
             </div>
 
 
-            <div class="memory-card tilted">
+            <div class="memory-card reveal">
 
-                <img src="assets/maggie.jpg" alt="Maggie">
+                <img
+                    src="assets/maggie.jpg"
+                    alt="Maggie">
 
                 <div class="memory-info">
 
-                    <span>EXHIBIT #002</span>
+                    <span>
+                        EXHIBIT #002
+                    </span>
 
                     <h3>
                         Maggie
@@ -454,13 +2358,17 @@
             </div>
 
 
-            <div class="memory-card">
+            <div class="memory-card reveal">
 
-                <img src="assets/pasta.jpg" alt="Pasta">
+                <img
+                    src="assets/pasta.jpg"
+                    alt="Pasta">
 
                 <div class="memory-info">
 
-                    <span>EXHIBIT #003</span>
+                    <span>
+                        EXHIBIT #003
+                    </span>
 
                     <h3>
                         Pasta
@@ -475,13 +2383,17 @@
             </div>
 
 
-            <div class="memory-card tilted">
+            <div class="memory-card reveal">
 
-                <img src="assets/pani-puri.jpg" alt="Pani Puri">
+                <img
+                    src="assets/pani-puri.jpg"
+                    alt="Pani Puri">
 
                 <div class="memory-info">
 
-                    <span>EXHIBIT #004</span>
+                    <span>
+                        EXHIBIT #004
+                    </span>
 
                     <h3>
                         Pani Puri
@@ -500,15 +2412,17 @@
     </section>
 
 
-    <!-- =========================
+    <!-- =====================================================
          MUSIC
-    ========================== -->
+    ===================================================== -->
 
     <section class="section music-section">
 
         <div class="section-heading">
 
-            <span>05 · SOUNDTRACK</span>
+            <span>
+                04 · SOUNDTRACK
+            </span>
 
             <h2>
                 Songs & Stories 🎧
@@ -524,13 +2438,14 @@
 
         <div class="music-list">
 
-            <div class="song-card">
+
+            <div class="song-card reveal">
 
                 <div class="song-number">
                     01
                 </div>
 
-                <div>
+                <div class="song-info">
 
                     <h3>
                         Add her song here
@@ -542,18 +2457,20 @@
 
                 </div>
 
-                <span>♫</span>
+                <span>
+                    ♫
+                </span>
 
             </div>
 
 
-            <div class="song-card">
+            <div class="song-card reveal">
 
                 <div class="song-number">
                     02
                 </div>
 
-                <div>
+                <div class="song-info">
 
                     <h3>
                         Add another song
@@ -566,18 +2483,20 @@
 
                 </div>
 
-                <span>♪</span>
+                <span>
+                    ♪
+                </span>
 
             </div>
 
 
-            <div class="song-card">
+            <div class="song-card reveal">
 
                 <div class="song-number">
                     03
                 </div>
 
-                <div>
+                <div class="song-info">
 
                     <h3>
                         One more...
@@ -590,7 +2509,9 @@
 
                 </div>
 
-                <span>♫</span>
+                <span>
+                    ♫
+                </span>
 
             </div>
 
@@ -599,15 +2520,17 @@
     </section>
 
 
-    <!-- =========================
+    <!-- =====================================================
          WEB SERIES
-    ========================== -->
+    ===================================================== -->
 
     <section class="section series-section">
 
         <div class="section-heading">
 
-            <span>06 · WATCHLIST</span>
+            <span>
+                05 · WATCHLIST
+            </span>
 
             <h2>
                 Your Watchlist 🎬
@@ -623,9 +2546,12 @@
 
         <div class="series-grid">
 
-            <div class="series-card">
 
-                <span>01</span>
+            <div class="series-card reveal">
+
+                <span>
+                    01
+                </span>
 
                 <h3>
                     Your Series
@@ -638,9 +2564,11 @@
             </div>
 
 
-            <div class="series-card">
+            <div class="series-card reveal">
 
-                <span>02</span>
+                <span>
+                    02
+                </span>
 
                 <h3>
                     Your Series
@@ -653,9 +2581,11 @@
             </div>
 
 
-            <div class="series-card">
+            <div class="series-card reveal">
 
-                <span>03</span>
+                <span>
+                    03
+                </span>
 
                 <h3>
                     Your Series
@@ -672,15 +2602,17 @@
     </section>
 
 
-    <!-- =========================
+    <!-- =====================================================
          BIRTHDAY
-    ========================== -->
+    ===================================================== -->
 
     <section class="birthday-section">
 
-        <div class="birthday-content">
+        <div class="birthday-content reveal">
 
-            <span>07 · HER DAY</span>
+            <span>
+                06 · HER DAY
+            </span>
 
             <div class="birthday-icon">
                 🎂
@@ -695,12 +2627,15 @@
                 its own little chapter.
             </p>
 
+
             <div class="birthday-photo">
 
-                <img src="assets/birthday.jpg"
+                <img
+                    src="assets/birthday.jpg"
                     alt="Birthday memory">
 
             </div>
+
 
             <p class="handwritten">
                 Happy birthday, Paru. ♡
@@ -711,15 +2646,17 @@
     </section>
 
 
-    <!-- =========================
+    <!-- =====================================================
          THINGS I NOTICE
-    ========================== -->
+    ===================================================== -->
 
     <section class="section notice-section">
 
         <div class="notice-content">
 
-            <span>08 · THE LITTLE THINGS</span>
+            <span>
+                07 · THE LITTLE THINGS
+            </span>
 
             <h2>
                 I Pay Attention.
@@ -736,42 +2673,44 @@
 
             <div class="notice-list">
 
-                <div>
+                <div class="reveal">
                     🎧 The songs you like.
                 </div>
 
-                <div>
+                <div class="reveal">
                     🎬 The stories you get invested in.
                 </div>
 
-                <div>
+                <div class="reveal">
                     🍫 The chocolates.
                 </div>
 
-                <div>
+                <div class="reveal">
                     🍜 The Maggie and pasta.
                 </div>
 
-                <div>
+                <div class="reveal">
                     🥙 The pani puri.
                 </div>
 
-                <div>
+                <div class="reveal">
                     📐 Your complete lack of enthusiasm
                     for maths.
                 </div>
 
-                <div>
+                <div class="reveal">
                     🎞️ Your love for Jab We Met.
                 </div>
 
-                <div>
+                <div class="reveal">
                     💬 The random things you tell me.
                 </div>
 
             </div>
 
+
             <div class="notice-line"></div>
+
 
             <p class="handwritten">
                 You probably forget some of these things.
@@ -784,9 +2723,9 @@
     </section>
 
 
-    <!-- =========================
+    <!-- =====================================================
          FINAL
-    ========================== -->
+    ===================================================== -->
 
     <section class="final-section">
 
@@ -796,10 +2735,13 @@
                 ♡
             </div>
 
+
             <h2>
-                A Little Corner<br>
+                A Little Corner
+                <br>
                 Just For You.
             </h2>
+
 
             <p>
                 You already know how I feel about you.
@@ -854,6 +2796,22 @@
 
                 <br>
 
+                Snapchat.
+
+                <br>
+
+                Telegram.
+
+                <br>
+
+                WhatsApp.
+
+                <br>
+
+                SMS.
+
+                <br>
+
                 The songs.
 
                 <br>
@@ -902,7 +2860,143 @@
     </footer>
 
 
-    <script src="script.js"></script>
+    <!-- =====================================================
+         JAVASCRIPT
+    ===================================================== -->
+
+    <script>
+
+        /* ============================================
+           ENTER OUR LITTLE UNIVERSE
+        ============================================ */
+
+        const enterButton =
+            document.getElementById("enterBtn");
+
+        const storySection =
+            document.getElementById("story");
+
+
+        enterButton.addEventListener("click", function () {
+
+            storySection.scrollIntoView({
+                behavior: "smooth",
+                block: "start"
+            });
+
+        });
+
+
+        /* ============================================
+           SCROLL REVEAL
+        ============================================ */
+
+        const revealElements =
+            document.querySelectorAll(".reveal");
+
+
+        const observer =
+            new IntersectionObserver(
+
+                function (entries) {
+
+                    entries.forEach(function (entry) {
+
+                        if (entry.isIntersecting) {
+
+                            entry.target.classList.add("show");
+
+                            observer.unobserve(entry.target);
+
+                        }
+
+                    });
+
+                },
+
+                {
+                    threshold: 0.12
+                }
+
+            );
+
+
+        revealElements.forEach(function (element) {
+
+            observer.observe(element);
+
+        });
+
+
+        /* ============================================
+           FLOATING BACKGROUND PARALLAX
+        ============================================ */
+
+        window.addEventListener("scroll", function () {
+
+            const background =
+                document.querySelector(".floating-bg");
+
+            if (!background) return;
+
+            background.style.transform =
+                "translateY(" +
+                window.scrollY * 0.02 +
+                "px)";
+
+        });
+
+
+        /* ============================================
+           IMAGE FALLBACK
+        ============================================ */
+
+        document
+            .querySelectorAll("img")
+            .forEach(function (image) {
+
+                image.addEventListener(
+                    "error",
+                    function () {
+
+                        image.style.display = "none";
+
+                        const parent =
+                            image.parentElement;
+
+                        if (parent) {
+
+                            parent.innerHTML += `
+                                <div style="
+                                    min-height:220px;
+                                    display:grid;
+                                    place-items:center;
+                                    background:#f8e9f2;
+                                    color:#9a7bb5;
+                                    font-family:Caveat,cursive;
+                                    font-size:25px;
+                                ">
+                                    Your memory photo goes here ♡
+                                </div>
+                            `;
+
+                        }
+
+                    }
+                );
+
+            });
+
+
+        /* ============================================
+           LITTLE CONSOLE MESSAGE
+        ============================================ */
+
+        console.log(
+            "♡ A Little Corner For You ♡"
+        );
+
+    </script>
 
 </body>
 
