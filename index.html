@@ -1,3004 +1,2131 @@
+```html
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <title>A Little Corner For You ♡</title>
-
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
-    <link
-        href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;500;600;700&family=Poppins:wght@300;400;500;600&display=swap"
-        rel="stylesheet">
-
-    <style>
-
-        /* =====================================================
-           RESET
-        ===================================================== */
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        html {
-            scroll-behavior: smooth;
-        }
-
-        body {
-            font-family: "Poppins", sans-serif;
-            background: #fffafd;
-            color: #332c38;
-            overflow-x: hidden;
-        }
-
-        h1,
-        h2,
-        h3,
-        h4 {
-            font-family: "Caveat", cursive;
-        }
-
-        img {
-            max-width: 100%;
-            display: block;
-        }
-
-        button {
-            font-family: inherit;
-            cursor: pointer;
-        }
-
-
-        /* =====================================================
-           COLORS
-        ===================================================== */
-
-        :root {
-            --white: #fffafd;
-            --pink: #f8dce8;
-            --light-pink: #fcecf3;
-            --lavender: #e9def4;
-            --lavender-dark: #9a7bb5;
-            --purple: #80629c;
-            --text: #332c38;
-            --soft-text: #756b78;
-            --border: #eee1ef;
-        }
-
-
-        /* =====================================================
-           FLOATING BACKGROUND
-        ===================================================== */
-
-        .floating-bg {
-            position: fixed;
-            inset: 0;
-            pointer-events: none;
-            z-index: 0;
-            overflow: hidden;
-        }
-
-        .floating-bg span {
-            position: absolute;
-            color: rgba(154, 123, 181, 0.22);
-            animation: float 7s infinite ease-in-out;
-        }
-
-        .floating-bg span:nth-child(1) {
-            top: 12%;
-            left: 8%;
-            font-size: 18px;
-        }
-
-        .floating-bg span:nth-child(2) {
-            top: 25%;
-            right: 12%;
-            font-size: 14px;
-            animation-delay: 1s;
-        }
-
-        .floating-bg span:nth-child(3) {
-            top: 60%;
-            left: 15%;
-            font-size: 25px;
-            animation-delay: 2s;
-        }
-
-        .floating-bg span:nth-child(4) {
-            top: 78%;
-            right: 20%;
-            font-size: 18px;
-            animation-delay: 3s;
-        }
-
-        .floating-bg span:nth-child(5) {
-            top: 43%;
-            right: 5%;
-            font-size: 13px;
-            animation-delay: 4s;
-        }
-
-        .floating-bg span:nth-child(6) {
-            top: 88%;
-            left: 52%;
-            font-size: 20px;
-            animation-delay: 1.5s;
-        }
-
-        @keyframes float {
-
-            0%,
-            100% {
-                transform: translateY(0);
-            }
-
-            50% {
-                transform: translateY(-15px);
-            }
-        }
-
-
-        /* =====================================================
-           HERO
-        ===================================================== */
-
-        .hero {
-            min-height: 100svh;
-
-            position: relative;
-            z-index: 1;
-
-            display: flex;
-            align-items: center;
-            justify-content: center;
-
-            text-align: center;
-
-            padding: 35px 20px;
-
-            background:
-                radial-gradient(
-                    circle at 15% 20%,
-                    #f8dce8 0,
-                    transparent 30%
-                ),
-                radial-gradient(
-                    circle at 85% 80%,
-                    #e9def4 0,
-                    transparent 32%
-                ),
-                #fffafd;
-
-            overflow: hidden;
-        }
-
-        .hero-content {
-            width: 100%;
-            max-width: 760px;
-        }
-
-        .small-text {
-            font-size: 11px;
-            letter-spacing: 3px;
-            text-transform: uppercase;
-            color: var(--soft-text);
-            margin-bottom: 22px;
-        }
-
-        .hero h1 {
-            font-size: clamp(70px, 12vw, 145px);
-            line-height: 0.78;
-            font-weight: 600;
-        }
-
-        .hero h1 span {
-            color: var(--purple);
-        }
-
-        .hero-description {
-            margin: 32px auto 20px;
-            line-height: 1.9;
-            color: var(--soft-text);
-            font-size: 14px;
-        }
-
-
-        /* =====================================================
-           LOVE THOUGHT
-        ===================================================== */
-
-        .love-thought {
-            max-width: 570px;
-            margin: 25px auto 28px;
-
-            padding: 18px 22px;
-
-            border-left: 2px solid #d9b8d9;
-            border-right: 2px solid #efcbdc;
-
-            background: rgba(255, 255, 255, 0.5);
-            border-radius: 15px;
-        }
-
-        .love-thought span {
-            display: block;
-
-            font-size: 9px;
-            letter-spacing: 2px;
-            text-transform: uppercase;
-
-            color: var(--lavender-dark);
-
-            margin-bottom: 8px;
-        }
-
-        .love-thought p {
-            font-family: "Caveat", cursive;
-
-            font-size: 25px;
-            line-height: 1.25;
-
-            color: #75627e;
-        }
-
-
-        /* =====================================================
-           ENTER BUTTON
-        ===================================================== */
-
-        .main-btn {
-            border: none;
-
-            padding: 14px 25px;
-
-            border-radius: 50px;
-
-            background: var(--purple);
-
-            color: white;
-
-            transition:
-                transform 0.3s ease,
-                box-shadow 0.3s ease;
-        }
-
-        .main-btn:hover {
-            transform: translateY(-4px);
-
-            box-shadow:
-                0 12px 25px rgba(128, 98, 156, 0.25);
-        }
-
-        .main-btn:active {
-            transform: scale(0.96);
-        }
-
-        .floating-heart {
-            position: absolute;
-
-            font-size: 120px;
-
-            color: rgba(154, 123, 181, 0.1);
-
-            right: 8%;
-            top: 18%;
-
-            animation: float 5s infinite ease-in-out;
-        }
-
-        .floating-star {
-            position: absolute;
-
-            color: var(--purple);
-
-            opacity: 0.4;
-
-            animation: float 4s infinite ease-in-out;
-        }
-
-        .star1 {
-            top: 20%;
-            left: 15%;
-        }
-
-        .star2 {
-            bottom: 20%;
-            right: 15%;
-            font-size: 30px;
-        }
-
-        .star3 {
-            bottom: 30%;
-            left: 20%;
-        }
-
-
-        /* =====================================================
-           SECTIONS
-        ===================================================== */
-
-        .section {
-            position: relative;
-            z-index: 1;
-            padding: 80px 7%;
-        }
-
-        .section-heading {
-            max-width: 700px;
-            margin: 0 auto 50px;
-            text-align: center;
-        }
-
-        .section-heading span {
-            font-size: 10px;
-            letter-spacing: 3px;
-            color: var(--purple);
-        }
-
-        .section-heading h2 {
-            font-size: clamp(48px, 7vw, 78px);
-            line-height: 0.9;
-            margin: 12px 0 18px;
-        }
-
-        .section-heading p {
-            color: var(--soft-text);
-            line-height: 1.7;
-            font-size: 13px;
-        }
-
-
-        /* =====================================================
-           STORY / TIMELINE
-        ===================================================== */
-
-        .story-section {
-            background: #fffafd;
-        }
-
-        .timeline {
-            max-width: 850px;
-            margin: auto;
-            position: relative;
-        }
-
-        .timeline::before {
-            content: "";
-
-            position: absolute;
-
-            left: 24px;
-            top: 0;
-            bottom: 0;
-
-            width: 2px;
-
-            background:
-                linear-gradient(
-                    to bottom,
-                    #f3cbdc,
-                    #d8c5e9
-                );
-        }
-
-        .timeline-item {
-            display: flex;
-            gap: 25px;
-
-            margin-bottom: 28px;
-        }
-
-        .timeline-dot {
-            min-width: 49px;
-            height: 49px;
-
-            border-radius: 50%;
-
-            background:
-                linear-gradient(
-                    135deg,
-                    #f6d7e5,
-                    #e5d8f1
-                );
-
-            display: grid;
-            place-items: center;
-
-            position: relative;
-            z-index: 2;
-
-            border: 4px solid #fffafd;
-        }
-
-        .timeline-card {
-            background: white;
-
-            padding: 24px;
-
-            border-radius: 18px;
-
-            flex: 1;
-
-            border: 1px solid var(--border);
-
-            box-shadow:
-                0 8px 25px rgba(90, 65, 100, 0.06);
-        }
-
-        .timeline-card > span {
-            font-size: 9px;
-            letter-spacing: 2px;
-            color: var(--purple);
-        }
-
-        .timeline-card h3 {
-            font-size: 30px;
-            margin: 8px 0;
-            line-height: 1;
-        }
-
-        .timeline-card p {
-            color: var(--soft-text);
-            line-height: 1.7;
-            margin-bottom: 8px;
-            font-size: 13px;
-        }
-
-        .handwritten {
-            font-family: "Caveat", cursive;
-            font-size: 25px !important;
-            color: var(--purple) !important;
-        }
-
-        .time-badge {
-            display: inline-block;
-
-            padding: 7px 13px;
-
-            margin-top: 5px;
-
-            background: var(--light-pink);
-
-            color: var(--purple);
-
-            border-radius: 30px;
-
-            font-size: 11px;
-        }
-
-
-        /* =====================================================
-           CONVERSATION TRANSITION
-        ===================================================== */
-
-        .conversation-transition {
-            max-width: 760px;
-
-            margin: 65px auto 10px;
-
-            padding-top: 45px;
-
-            text-align: center;
-
-            border-top: 1px dashed #dcc9df;
-        }
-
-        .conversation-intro > span {
-            font-size: 9px;
-            letter-spacing: 3px;
-            color: var(--purple);
-        }
-
-        .conversation-intro h3 {
-            font-size: 46px;
-            line-height: 0.95;
-
-            color: #66516f;
-
-            margin: 15px 0;
-        }
-
-        .conversation-intro p {
-            max-width: 500px;
-            margin: auto;
-
-            color: #817683;
-
-            font-size: 13px;
-            line-height: 1.7;
-        }
-
-        .chat-journey {
-            max-width: 580px;
-            margin: 40px auto 0;
-        }
-
-        .chat-step {
-            display: flex;
-
-            align-items: center;
-
-            text-align: left;
-
-            gap: 18px;
-
-            padding: 20px;
-
-            background: rgba(255, 255, 255, 0.85);
-
-            border: 1px solid var(--border);
-
-            border-radius: 18px;
-
-            box-shadow:
-                0 8px 25px rgba(100, 70, 110, 0.05);
-
-            transition:
-                transform 0.3s ease,
-                box-shadow 0.3s ease;
-        }
-
-        .chat-step:hover {
-            transform: translateY(-4px);
-
-            box-shadow:
-                0 13px 30px rgba(100, 70, 110, 0.09);
-        }
-
-        .chat-icon {
-            width: 52px;
-            height: 52px;
-
-            min-width: 52px;
-
-            display: grid;
-            place-items: center;
-
-            border-radius: 16px;
-
-            font-size: 25px;
-
-            background:
-                linear-gradient(
-                    135deg,
-                    #f8dce8,
-                    #e9def4
-                );
-        }
-
-        .chat-step span {
-            font-size: 8px;
-            letter-spacing: 2px;
-            color: var(--purple);
-        }
-
-        .chat-step h4 {
-            font-size: 32px;
-            line-height: 1;
-            margin: 5px 0;
-        }
-
-        .chat-step p {
-            color: #817683;
-            font-size: 12px;
-        }
-
-        .journey-arrow {
-            height: 42px;
-
-            display: grid;
-            place-items: center;
-
-            color: #b59ac1;
-
-            font-size: 20px;
-
-            animation:
-                journeyPulse 2s infinite ease-in-out;
-        }
-
-        @keyframes journeyPulse {
-
-            0%,
-            100% {
-                transform: translateY(0);
-                opacity: 0.5;
-            }
-
-            50% {
-                transform: translateY(5px);
-                opacity: 1;
-            }
-        }
-
-        .journey-end {
-            margin-top: 15px;
-
-            padding: 35px 20px;
-
-            border-radius: 22px;
-
-            background:
-                linear-gradient(
-                    135deg,
-                    #fcecf3,
-                    #eee5f7
-                );
-
-            border: 1px solid #eadceb;
-        }
-
-        .end-dots {
-            color: #a98bb5;
-
-            letter-spacing: 8px;
-
-            margin-bottom: 12px;
-        }
-
-        .journey-end h3 {
-            font-size: 38px;
-            color: #74567e;
-            line-height: 1;
-        }
-
-        .journey-end p {
-            margin-top: 12px;
-
-            color: #806f83;
-
-            font-size: 12px;
-
-            line-height: 1.7;
-        }
-
-        .infinity {
-            margin-top: 20px;
-
-            font-family: "Caveat", cursive;
-
-            font-size: 55px;
-
-            color: #b47e9e;
-        }
-
-
-        /* =====================================================
-           THINGS SHE LIKES
-        ===================================================== */
-
-        .likes-section {
-            background:
-                linear-gradient(
-                    135deg,
-                    #f2e8f7,
-                    #fdebf3
-                );
-        }
-
-        .knowledge-grid {
-            max-width: 1100px;
-
-            margin: auto;
-
-            display: grid;
-
-            grid-template-columns:
-                repeat(3, 1fr);
-
-            gap: 18px;
-        }
-
-        .knowledge-card {
-            padding: 28px;
-
-            min-height: 215px;
-
-            border-radius: 20px;
-
-            border: 1px solid rgba(154, 123, 181, 0.12);
-
-            background:
-                rgba(255, 255, 255, 0.65);
-
-            transition: 0.35s;
-
-            box-shadow:
-                0 8px 25px rgba(100, 70, 110, 0.05);
-        }
-
-        .knowledge-card:hover {
-            transform: translateY(-6px);
-            background: white;
-        }
-
-        .icon {
-            font-size: 32px;
-            margin-bottom: 14px;
-        }
-
-        .knowledge-card h3 {
-            font-size: 30px;
-            margin-bottom: 8px;
-        }
-
-        .knowledge-card p {
-            color: var(--soft-text);
-            line-height: 1.6;
-            font-size: 13px;
-        }
-
-        .nope {
-            display: block;
-
-            margin-top: 12px;
-
-            color: #b77e9d;
-
-            font-family: "Caveat", cursive;
-
-            font-size: 21px;
-        }
-
-
-        /* =====================================================
-           SNACK MUSEUM
-        ===================================================== */
-
-        .snack-section {
-            background: #fffafd;
-        }
-
-        .gallery {
-            max-width: 1050px;
-
-            margin: auto;
-
-            display: grid;
-
-            grid-template-columns:
-                repeat(2, 1fr);
-
-            gap: 28px;
-        }
-
-        .memory-card {
-            background: white;
-
-            padding: 10px;
-
-            border: 1px solid #f1e5ef;
-
-            box-shadow:
-                0 12px 30px rgba(70, 45, 80, 0.07);
-
-            transition: 0.35s;
-        }
-
-        .memory-card:nth-child(even) {
-            transform: rotate(1deg);
-        }
-
-        .memory-card:hover {
-            transform:
-                rotate(0deg)
-                translateY(-6px);
-        }
-
-        .memory-card img {
-            width: 100%;
-
-            height: 310px;
-
-            object-fit: cover;
-
-            border-radius: 3px;
-        }
-
-        .memory-info {
-            padding: 17px 8px 10px;
-        }
-
-        .memory-info span {
-            font-size: 8px;
-
-            letter-spacing: 2px;
-
-            color: var(--purple);
-        }
-
-        .memory-info h3 {
-            font-size: 29px;
-
-            margin: 4px 0;
-        }
-
-        .memory-info p {
-            color: var(--soft-text);
-
-            font-size: 13px;
-        }
-
-
-        /* =====================================================
-           MUSIC
-        ===================================================== */
-
-        .music-section {
-            background: #f7eff9;
-        }
-
-        .music-list {
-            max-width: 750px;
-            margin: auto;
-        }
-
-        .song-card {
-            display: flex;
-
-            align-items: center;
-
-            gap: 17px;
-
-            padding: 18px;
-
-            background:
-                rgba(255, 255, 255, 0.8);
-
-            margin-bottom: 12px;
-
-            border-radius: 15px;
-
-            border: 1px solid #eee1f0;
-
-            transition: 0.3s;
-        }
-
-        .song-card:hover {
-            transform: translateX(5px);
-        }
-
-        .song-number {
-            width: 40px;
-            height: 40px;
-
-            display: grid;
-            place-items: center;
-
-            border-radius: 50%;
-
-            background: var(--lavender);
-
-            color: var(--purple);
-
-            font-size: 12px;
-        }
-
-        .song-info {
-            flex: 1;
-        }
-
-        .song-card h3 {
-            font-size: 27px;
-        }
-
-        .song-card p {
-            color: var(--soft-text);
-            font-size: 12px;
-        }
-
-        .song-card > span {
-            font-size: 23px;
-            color: var(--purple);
-        }
-
-
-        /* =====================================================
-           WEB SERIES
-        ===================================================== */
-
-        .series-section {
-            background: #fffafd;
-        }
-
-        .series-grid {
-            max-width: 1000px;
-
-            margin: auto;
-
-            display: grid;
-
-            grid-template-columns:
-                repeat(3, 1fr);
-
-            gap: 18px;
-        }
-
-        .series-card {
-            min-height: 200px;
-
-            padding: 25px;
-
-            background:
-                linear-gradient(
-                    145deg,
-                    #fff,
-                    #fdf2f8
-                );
-
-            border-radius: 20px;
-
-            border: 1px solid #f0e3ef;
-
-            box-shadow:
-                0 8px 25px rgba(80, 50, 90, 0.05);
-
-            transition: 0.3s;
-        }
-
-        .series-card:hover {
-            transform: translateY(-6px);
-        }
-
-        .series-card > span {
-            color: var(--purple);
-            font-size: 11px;
-        }
-
-        .series-card h3 {
-            font-size: 32px;
-
-            margin: 35px 0 7px;
-        }
-
-        .series-card p {
-            color: var(--soft-text);
-            font-size: 12px;
-        }
-
-
-        /* =====================================================
-           BIRTHDAY
-        ===================================================== */
-
-        .birthday-section {
-            min-height: 75vh;
-
-            padding: 80px 20px;
-
-            display: grid;
-            place-items: center;
-
-            text-align: center;
-
-            background:
-                radial-gradient(
-                    circle at center,
-                    #f5dce8,
-                    transparent 55%
-                ),
-                #fffafd;
-        }
-
-        .birthday-content {
-            max-width: 700px;
-        }
-
-        .birthday-content > span {
-            letter-spacing: 3px;
-
-            font-size: 10px;
-
-            color: var(--purple);
-        }
-
-        .birthday-icon {
-            font-size: 60px;
-            margin: 20px 0;
-        }
-
-        .birthday-content h2 {
-            font-size:
-                clamp(58px, 9vw, 100px);
-
-            line-height: 0.8;
-        }
-
-        .birthday-content > p {
-            color: var(--soft-text);
-
-            line-height: 1.7;
-
-            margin: 20px auto;
-        }
-
-        .birthday-photo {
-            max-width: 430px;
-
-            margin: 30px auto;
-
-            padding: 8px;
-
-            background: white;
-
-            border: 1px solid #f0e0eb;
-
-            box-shadow:
-                0 15px 35px rgba(80, 50, 90, 0.08);
-        }
-
-        .birthday-photo img {
-            width: 100%;
-
-            height: 330px;
-
-            object-fit: cover;
-        }
-
-
-        /* =====================================================
-           THINGS I NOTICE
-        ===================================================== */
-
-        .notice-section {
-            background: #fdf7fb;
-
-            text-align: center;
-        }
-
-        .notice-content {
-            max-width: 800px;
-
-            margin: auto;
-        }
-
-        .notice-content > span {
-            letter-spacing: 3px;
-
-            font-size: 10px;
-
-            color: var(--purple);
-        }
-
-        .notice-content h2 {
-            font-size:
-                clamp(65px, 10vw, 120px);
-
-            color: var(--purple);
-
-            line-height: 0.7;
-
-            margin: 50px 0 25px;
-        }
-
-        .notice-content > p {
-            color: var(--soft-text);
-
-            line-height: 1.7;
-        }
-
-        .notice-list {
-            margin: 45px auto;
-
-            max-width: 650px;
-
-            display: grid;
-
-            gap: 10px;
-        }
-
-        .notice-list div {
-            background: white;
-
-            padding: 14px 18px;
-
-            border-radius: 12px;
-
-            border: 1px solid #f0e4ef;
-
-            color: #625968;
-
-            text-align: left;
-
-            transition: 0.3s;
-        }
-
-        .notice-list div:hover {
-            transform: translateX(5px);
-
-            background: #fff2f8;
-        }
-
-        .notice-line {
-            width: 60px;
-
-            height: 1px;
-
-            background: #d9c6d9;
-
-            margin: 40px auto;
-        }
-
-
-        /* =====================================================
-           FINAL
-        ===================================================== */
-
-        .final-section {
-            min-height: 90vh;
-
-            padding: 90px 20px;
-
-            display: grid;
-            place-items: center;
-
-            text-align: center;
-
-            background:
-                radial-gradient(
-                    circle at center,
-                    #5b4764,
-                    transparent 55%
-                ),
-                #302838;
-
-            color: white;
-        }
-
-        .final-content {
-            max-width: 750px;
-        }
-
-        .final-symbol {
-            font-size: 60px;
-
-            color: #f1cfe0;
-
-            margin-bottom: 25px;
-        }
-
-        .final-content h2 {
-            font-size:
-                clamp(55px, 9vw, 95px);
-
-            line-height: 0.8;
-
-            margin-bottom: 40px;
-        }
-
-        .final-content > p {
-            color: #d3cbd5;
-
-            line-height: 1.7;
-
-            margin-bottom: 10px;
-        }
-
-        .final-line {
-            width: 65px;
-
-            height: 1px;
-
-            background: #817387;
-
-            margin: 38px auto;
-        }
-
-        .special-message {
-            color: #d7ceda !important;
-
-            line-height: 2 !important;
-        }
-
-        .final-content h3 {
-            font-size: 28px;
-
-            color: #f1d8e5;
-
-            margin-top: 30px;
-        }
-
-        .signature {
-            font-family: "Caveat", cursive;
-
-            font-size: 26px;
-
-            color: #e0cddd !important;
-
-            margin-top: 30px;
-        }
-
-
-        /* =====================================================
-           FOOTER
-        ===================================================== */
-
-        footer {
-            background: #241d29;
-
-            color: #a99eac;
-
-            text-align: center;
-
-            padding: 20px;
-
-            font-size: 11px;
-        }
-
-
-        /* =====================================================
-           REVEAL ANIMATION
-        ===================================================== */
-
-        .reveal {
-            opacity: 0;
-
-            transform: translateY(20px);
-
-            transition:
-                opacity 0.7s ease,
-                transform 0.7s ease;
-        }
-
-        .reveal.show {
-            opacity: 1;
-
-            transform: translateY(0);
-        }
-
-
-        /* =====================================================
-           TABLET
-        ===================================================== */
-
-        @media (max-width: 800px) {
-
-            .section {
-                padding: 65px 20px;
-            }
-
-            .hero {
-                min-height: 100svh;
-            }
-
-            .hero h1 {
-                font-size: 70px;
-            }
-
-            .knowledge-grid,
-            .series-grid {
-                grid-template-columns: 1fr 1fr;
-            }
-
-            .gallery {
-                grid-template-columns: 1fr 1fr;
-
-                gap: 18px;
-            }
-
-            .memory-card img {
-                height: 260px;
-            }
-        }
-
-
-        /* =====================================================
-           MOBILE
-        ===================================================== */
-
-        @media (max-width: 550px) {
-
-            .section {
-                padding: 52px 16px;
-            }
-
-            .section-heading {
-                margin-bottom: 30px;
-            }
-
-            .section-heading h2 {
-                font-size: 46px;
-
-                margin: 8px 0 14px;
-            }
-
-            .section-heading p {
-                font-size: 12px;
-            }
-
-
-            /* Hero */
-
-            .hero {
-                min-height: 100svh;
-
-                padding:
-                    25px 17px;
-            }
-
-            .small-text {
-                font-size: 8px;
-
-                letter-spacing: 2px;
-
-                margin-bottom: 17px;
-            }
-
-            .hero h1 {
-                font-size: 57px;
-
-                line-height: 0.82;
-            }
-
-            .hero-description {
-                font-size: 12px;
-
-                line-height: 1.7;
-
-                margin: 23px auto 15px;
-            }
-
-            .love-thought {
-                margin: 18px auto 23px;
-
-                padding: 14px 15px;
-            }
-
-            .love-thought p {
-                font-size: 21px;
-                line-height: 1.25;
-            }
-
-            .main-btn {
-                font-size: 11px;
-
-                padding:
-                    12px 19px;
-            }
-
-            .floating-heart {
-                font-size: 60px;
-
-                right: -5px;
-
-                top: 16%;
-            }
-
-
-            /* Timeline */
-
-            .timeline::before {
-                left: 19px;
-            }
-
-            .timeline-item {
-                gap: 12px;
-
-                margin-bottom: 20px;
-            }
-
-            .timeline-dot {
-                min-width: 39px;
-
-                width: 39px;
-
-                height: 39px;
-
-                font-size: 14px;
-
-                border-width: 3px;
-            }
-
-            .timeline-card {
-                padding: 17px;
-
-                border-radius: 14px;
-            }
-
-            .timeline-card h3 {
-                font-size: 24px;
-
-                line-height: 1;
-            }
-
-            .timeline-card p {
-                font-size: 11px;
-
-                line-height: 1.6;
-            }
-
-            .timeline-card > span {
-                font-size: 7px;
-            }
-
-            .handwritten {
-                font-size: 21px !important;
-            }
-
-
-            /* Conversation */
-
-            .conversation-transition {
-                margin-top: 42px;
-
-                padding-top: 30px;
-            }
-
-            .conversation-intro h3 {
-                font-size: 35px;
-            }
-
-            .conversation-intro p {
-                font-size: 11px;
-            }
-
-            .chat-journey {
-                margin-top: 28px;
-            }
-
-            .chat-step {
-                padding: 14px;
-
-                gap: 12px;
-
-                border-radius: 15px;
-            }
-
-            .chat-icon {
-                width: 43px;
-                height: 43px;
-
-                min-width: 43px;
-
-                border-radius: 13px;
-
-                font-size: 19px;
-            }
-
-            .chat-step h4 {
-                font-size: 27px;
-            }
-
-            .chat-step p {
-                font-size: 10px;
-            }
-
-            .chat-step span {
-                font-size: 7px;
-            }
-
-            .journey-arrow {
-                height: 30px;
-            }
-
-            .journey-end {
-                padding: 26px 14px;
-            }
-
-            .journey-end h3 {
-                font-size: 31px;
-            }
-
-            .journey-end p {
-                font-size: 11px;
-            }
-
-            .infinity {
-                font-size: 45px;
-            }
-
-
-            /* Likes */
-
-            .knowledge-grid {
-                grid-template-columns: 1fr;
-
-                gap: 11px;
-            }
-
-            .knowledge-card {
-                min-height: auto;
-
-                padding: 21px;
-            }
-
-            .knowledge-card h3 {
-                font-size: 27px;
-            }
-
-
-            /* Gallery */
-
-            .gallery {
-                grid-template-columns: 1fr;
-
-                gap: 20px;
-            }
-
-            .memory-card:nth-child(even) {
-                transform: none;
-            }
-
-            .memory-card img {
-                height: 270px;
-            }
-
-
-            /* Music */
-
-            .song-card {
-                padding: 14px;
-
-                gap: 11px;
-            }
-
-            .song-number {
-                width: 35px;
-                height: 35px;
-
-                min-width: 35px;
-            }
-
-            .song-card h3 {
-                font-size: 23px;
-            }
-
-            .song-card p {
-                font-size: 10px;
-            }
-
-
-            /* Series */
-
-            .series-grid {
-                grid-template-columns: 1fr;
-
-                gap: 11px;
-            }
-
-            .series-card {
-                min-height: 145px;
-
-                padding: 20px;
-            }
-
-            .series-card h3 {
-                margin: 25px 0 5px;
-            }
-
-
-            /* Birthday */
-
-            .birthday-section {
-                min-height: 65vh;
-
-                padding: 60px 18px;
-            }
-
-            .birthday-icon {
-                font-size: 50px;
-
-                margin: 14px 0;
-            }
-
-            .birthday-content h2 {
-                font-size: 61px;
-            }
-
-            .birthday-photo {
-                margin: 23px auto;
-            }
-
-            .birthday-photo img {
-                height: 270px;
-            }
-
-
-            /* Notice */
-
-            .notice-content h2 {
-                font-size: 68px;
-
-                margin: 40px 0 20px;
-            }
-
-            .notice-list {
-                margin: 32px auto;
-
-                gap: 8px;
-            }
-
-            .notice-list div {
-                padding: 11px 13px;
-
-                font-size: 11px;
-            }
-
-
-            /* Final */
-
-            .final-section {
-                min-height: 80vh;
-
-                padding: 70px 17px;
-            }
-
-            .final-symbol {
-                font-size: 50px;
-            }
-
-            .final-content h2 {
-                font-size: 57px;
-
-                margin-bottom: 30px;
-            }
-
-            .special-message {
-                font-size: 12px;
-
-                line-height: 1.9 !important;
-            }
-
-            .final-content h3 {
-                font-size: 24px;
-            }
-
-            .signature {
-                font-size: 24px;
-            }
-        }
-
-
-        /* =====================================================
-           VERY SMALL PHONES
-        ===================================================== */
-
-        @media (max-width: 360px) {
-
-            .hero h1 {
-                font-size: 50px;
-            }
-
-            .section-heading h2 {
-                font-size: 41px;
-            }
-
-            .love-thought p {
-                font-size: 19px;
-            }
-
-            .conversation-intro h3 {
-                font-size: 32px;
-            }
-        }
-
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Our Little Universe ♡</title>
+
+<!-- Fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;500;600;700&family=DM+Sans:wght@300;400;500;600&family=Playfair+Display:ital,wght@400;500;600&display=swap" rel="stylesheet">
+
+<style>
+
+/* =========================================================
+   RESET
+========================================================= */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    font-family:"DM Sans",sans-serif;
+    color:#66566b;
+    background:#fffafd;
+    overflow-x:hidden;
+}
+
+button{
+    font-family:inherit;
+}
+
+img{
+    max-width:100%;
+    display:block;
+}
+
+
+/* =========================================================
+   CUSTOM SCROLLBAR
+========================================================= */
+
+::-webkit-scrollbar{
+    width:7px;
+}
+
+::-webkit-scrollbar-track{
+    background:#fff5fa;
+}
+
+::-webkit-scrollbar-thumb{
+    background:#d9b8ce;
+    border-radius:20px;
+}
+
+
+/* =========================================================
+   BACKGROUND FLOATING PARTICLES
+========================================================= */
+
+.background{
+    position:fixed;
+    inset:0;
+    pointer-events:none;
+    overflow:hidden;
+    z-index:-1;
+}
+
+.blob{
+    position:absolute;
+    border-radius:50%;
+    filter:blur(55px);
+    opacity:.35;
+}
+
+.blob.one{
+    width:300px;
+    height:300px;
+    background:#f6dce9;
+    top:5%;
+    left:-120px;
+}
+
+.blob.two{
+    width:350px;
+    height:350px;
+    background:#e6dcf5;
+    right:-130px;
+    top:40%;
+}
+
+.blob.three{
+    width:260px;
+    height:260px;
+    background:#f7e8d9;
+    left:30%;
+    bottom:-120px;
+}
+
+.sparkle{
+    position:absolute;
+    color:#d7afca;
+    animation:sparkleFloat 7s ease-in-out infinite;
+}
+
+.s1{
+    top:15%;
+    left:12%;
+}
+
+.s2{
+    top:30%;
+    right:15%;
+    animation-delay:1s;
+}
+
+.s3{
+    top:70%;
+    left:8%;
+    animation-delay:2s;
+}
+
+.s4{
+    bottom:15%;
+    right:10%;
+    animation-delay:3s;
+}
+
+@keyframes sparkleFloat{
+    0%,100%{
+        transform:translateY(0) rotate(0);
+        opacity:.3;
+    }
+
+    50%{
+        transform:translateY(-18px) rotate(20deg);
+        opacity:.8;
+    }
+}
+
+
+/* =========================================================
+   COMMON
+========================================================= */
+
+section{
+    min-height:100vh;
+    padding:100px 7%;
+    position:relative;
+}
+
+.section-heading{
+    text-align:center;
+    max-width:700px;
+    margin:0 auto 65px;
+}
+
+.section-heading span{
+    font-size:10px;
+    letter-spacing:3px;
+    color:#a784a4;
+}
+
+.section-heading h2{
+    font-family:"Playfair Display",serif;
+    font-size:clamp(35px,5vw,58px);
+    font-weight:500;
+    color:#705875;
+    margin:12px 0;
+}
+
+.section-heading p{
+    font-size:13px;
+    line-height:1.8;
+    color:#938695;
+}
+
+.reveal{
+    opacity:0;
+    transform:translateY(30px);
+    transition:opacity .8s ease,transform .8s ease;
+}
+
+.reveal.show{
+    opacity:1;
+    transform:translateY(0);
+}
+
+
+/* =========================================================
+   HERO
+========================================================= */
+
+.hero{
+    min-height:100vh;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    text-align:center;
+    padding:30px 20px;
+}
+
+.hero-inner{
+    max-width:800px;
+}
+
+.tiny-label{
+    font-size:10px;
+    letter-spacing:4px;
+    color:#aa88a8;
+    margin-bottom:20px;
+}
+
+.hero h1{
+    font-family:"Playfair Display",serif;
+    font-size:clamp(50px,9vw,100px);
+    line-height:1;
+    font-weight:500;
+    color:#705875;
+}
+
+.hero h1 em{
+    color:#b47e9d;
+}
+
+.hero-subtitle{
+    max-width:540px;
+    margin:25px auto;
+    font-size:14px;
+    line-height:1.9;
+    color:#887888;
+}
+
+.love-line{
+    margin:35px auto;
+    max-width:600px;
+    font-family:"Caveat",cursive;
+    font-size:25px;
+    line-height:1.35;
+    color:#a16f8e;
+}
+
+.enter-btn{
+    border:0;
+    background:linear-gradient(135deg,#e8bfd3,#d9c9eb);
+    color:#fff;
+    padding:15px 28px;
+    border-radius:50px;
+    font-size:13px;
+    cursor:pointer;
+    box-shadow:0 12px 30px rgba(160,120,155,.2);
+    transition:.3s;
+}
+
+.enter-btn:hover{
+    transform:translateY(-4px) scale(1.03);
+    box-shadow:0 18px 35px rgba(160,120,155,.3);
+}
+
+.scroll-note{
+    margin-top:35px;
+    font-size:10px;
+    letter-spacing:2px;
+    color:#b19ead;
+}
+
+
+/* =========================================================
+   LITTLE CORNER
+========================================================= */
+
+.corner-section{
+    background:
+        radial-gradient(circle at 10% 20%,#fae5ef,transparent 30%),
+        radial-gradient(circle at 90% 80%,#ebe2f6,transparent 30%),
+        #fffafd;
+}
+
+.corner{
+    max-width:1050px;
+    margin:auto;
+    position:relative;
+    min-height:650px;
+}
+
+.corner-note{
+    position:absolute;
+    width:230px;
+    padding:22px;
+    background:#fff;
+    border:1px solid #eee0ea;
+    box-shadow:0 18px 40px rgba(90,60,100,.08);
+    border-radius:4px;
+}
+
+.corner-note h3{
+    font-family:"Caveat",cursive;
+    font-size:28px;
+    color:#765d78;
+    margin-bottom:8px;
+}
+
+.corner-note p{
+    font-size:11px;
+    line-height:1.7;
+    color:#8b7b8c;
+}
+
+.note1{
+    left:5%;
+    top:8%;
+    transform:rotate(-5deg);
+    animation:noteFloat1 5s ease-in-out infinite;
+}
+
+.note2{
+    right:5%;
+    top:4%;
+    transform:rotate(5deg);
+    animation:noteFloat2 6s ease-in-out infinite;
+}
+
+.note3{
+    left:2%;
+    bottom:7%;
+    transform:rotate(4deg);
+    animation:noteFloat3 5.5s ease-in-out infinite;
+}
+
+.note4{
+    right:2%;
+    bottom:6%;
+    transform:rotate(-4deg);
+    animation:noteFloat4 6s ease-in-out infinite;
+}
+
+.corner-center{
+    position:absolute;
+    width:210px;
+    height:210px;
+    border-radius:50%;
+    background:linear-gradient(145deg,#fff,#f8e8f2);
+    border:1px solid #eadceb;
+    box-shadow:0 25px 60px rgba(100,70,110,.12);
+    top:50%;
+    left:50%;
+    transform:translate(-50%,-50%);
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+    text-align:center;
+    animation:centerFloat 5s ease-in-out infinite;
+}
+
+.corner-center span{
+    font-size:45px;
+    color:#b27d9c;
+}
+
+.corner-center h3{
+    font-family:"Caveat",cursive;
+    font-size:30px;
+    color:#735978;
+}
+
+.corner-center p{
+    font-size:10px;
+    line-height:1.5;
+    color:#958696;
+}
+
+@keyframes noteFloat1{
+    0%,100%{transform:rotate(-5deg) translateY(0)}
+    50%{transform:rotate(-3deg) translateY(-13px)}
+}
+
+@keyframes noteFloat2{
+    0%,100%{transform:rotate(5deg) translateY(0)}
+    50%{transform:rotate(3deg) translateY(-15px)}
+}
+
+@keyframes noteFloat3{
+    0%,100%{transform:rotate(4deg) translateY(0)}
+    50%{transform:rotate(2deg) translateY(-12px)}
+}
+
+@keyframes noteFloat4{
+    0%,100%{transform:rotate(-4deg) translateY(0)}
+    50%{transform:rotate(-2deg) translateY(-14px)}
+}
+
+@keyframes centerFloat{
+    0%,100%{margin-top:0}
+    50%{margin-top:-12px}
+}
+
+
+/* =========================================================
+   STORY / TIMELINE
+========================================================= */
+
+.story-section{
+    background:#fff;
+}
+
+.timeline{
+    max-width:850px;
+    margin:auto;
+    position:relative;
+}
+
+.timeline::before{
+    content:"";
+    position:absolute;
+    left:50%;
+    top:0;
+    bottom:0;
+    width:1px;
+    background:#e6d5e1;
+}
+
+.story-item{
+    width:50%;
+    padding:20px 45px;
+    position:relative;
+}
+
+.story-item:nth-child(odd){
+    text-align:right;
+}
+
+.story-item:nth-child(even){
+    margin-left:50%;
+}
+
+.story-dot{
+    position:absolute;
+    width:12px;
+    height:12px;
+    background:#d4a8c2;
+    border:4px solid #fffafd;
+    border-radius:50%;
+    top:28px;
+    box-shadow:0 0 0 1px #dfc6d8;
+}
+
+.story-item:nth-child(odd) .story-dot{
+    right:-6px;
+}
+
+.story-item:nth-child(even) .story-dot{
+    left:-6px;
+}
+
+.story-card{
+    display:inline-block;
+    max-width:360px;
+    padding:22px;
+    border-radius:18px;
+    background:#fffafd;
+    border:1px solid #eee1eb;
+    box-shadow:0 12px 30px rgba(100,70,100,.06);
+}
+
+.story-date{
+    font-size:9px;
+    letter-spacing:2px;
+    color:#a27e9d;
+}
+
+.story-card h3{
+    font-family:"Playfair Display",serif;
+    font-size:23px;
+    font-weight:500;
+    color:#725875;
+    margin:8px 0;
+}
+
+.story-card p{
+    font-size:11px;
+    line-height:1.7;
+    color:#897b8b;
+}
+
+
+/* =========================================================
+   CHAT JOURNEY
+========================================================= */
+
+.chat-journey{
+    margin:80px auto 0;
+    max-width:900px;
+    text-align:center;
+}
+
+.chat-journey-title{
+    font-family:"Caveat",cursive;
+    font-size:32px;
+    color:#86617f;
+    margin-bottom:35px;
+}
+
+.chat-path{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    flex-wrap:wrap;
+    gap:10px;
+}
+
+.chat-app{
+    padding:13px 18px;
+    background:#fff;
+    border:1px solid #ebdce8;
+    border-radius:50px;
+    font-size:11px;
+    color:#7b657d;
+    box-shadow:0 8px 20px rgba(90,60,90,.05);
+    animation:appFloat 4s ease-in-out infinite;
+}
+
+.chat-app:nth-child(2){animation-delay:.5s}
+.chat-app:nth-child(3){animation-delay:1s}
+.chat-app:nth-child(4){animation-delay:1.5s}
+
+.chat-arrow{
+    color:#c49ab5;
+}
+
+.never-ended{
+    margin-top:30px;
+    font-family:"Caveat",cursive;
+    font-size:24px;
+    color:#aa7594;
+}
+
+@keyframes appFloat{
+    0%,100%{transform:translateY(0)}
+    50%{transform:translateY(-6px)}
+}
+
+
+/* =========================================================
+   THINGS I REMEMBER
+========================================================= */
+
+.remember-section{
+    background:
+        radial-gradient(circle at 10% 20%,#f9e3ed,transparent 28%),
+        radial-gradient(circle at 90% 80%,#e9def4,transparent 30%),
+        #fffafd;
+    overflow:hidden;
+}
+
+.memory-universe{
+    max-width:1000px;
+    min-height:680px;
+    margin:auto;
+    position:relative;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+}
+
+.remember-center{
+    width:190px;
+    height:190px;
+    border-radius:50%;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+    background:linear-gradient(145deg,#fff,#f7e8f1);
+    border:1px solid #eadceb;
+    box-shadow:0 20px 60px rgba(100,70,110,.12);
+    position:relative;
+    z-index:5;
+    animation:centerFloat 5s ease-in-out infinite;
+}
+
+.center-heart{
+    font-size:43px;
+    color:#b47e9e;
+}
+
+.remember-center h3{
+    font-size:29px;
+    color:#765b80;
+    margin:6px 0;
+}
+
+.remember-center p{
+    font-size:10px;
+    color:#897b8b;
+    line-height:1.5;
+}
+
+.floating-memory{
+    position:absolute;
+    width:270px;
+    padding:18px;
+    display:flex;
+    gap:13px;
+    align-items:flex-start;
+    background:rgba(255,255,255,.82);
+    backdrop-filter:blur(8px);
+    border:1px solid #eee0ef;
+    border-radius:18px;
+    box-shadow:0 15px 40px rgba(90,60,100,.08);
+    transition:.4s;
+}
+
+.floating-memory:hover{
+    transform:scale(1.04) translateY(-7px);
+    box-shadow:0 20px 45px rgba(90,60,100,.13);
+}
+
+.memory-emoji{
+    width:45px;
+    height:45px;
+    min-width:45px;
+    display:grid;
+    place-items:center;
+    border-radius:14px;
+    background:linear-gradient(135deg,#f9dce8,#e9def4);
+    font-size:22px;
+}
+
+.floating-memory small{
+    font-size:7px;
+    letter-spacing:2px;
+    color:#9a7bb5;
+}
+
+.floating-memory h3{
+    font-size:27px;
+    color:#6e5975;
+    margin:2px 0;
+}
+
+.floating-memory p{
+    font-size:10px;
+    color:#807581;
+    line-height:1.55;
+}
+
+.floating-memory strong{
+    display:block;
+    margin-top:7px;
+    font-family:"Caveat",cursive;
+    font-size:17px;
+    color:#b17d9c;
+}
+
+.music-memory{
+    top:5%;
+    left:2%;
+    animation:cardFloat1 5s ease-in-out infinite;
+}
+
+.series-memory{
+    top:3%;
+    right:2%;
+    animation:cardFloat2 6s ease-in-out infinite;
+}
+
+.food-memory{
+    top:39%;
+    left:0;
+    animation:cardFloat3 5.5s ease-in-out infinite;
+}
+
+.travel-memory{
+    top:40%;
+    right:0;
+    animation:cardFloat4 6s ease-in-out infinite;
+}
+
+.freedom-memory{
+    bottom:4%;
+    left:8%;
+    animation:cardFloat5 5.5s ease-in-out infinite;
+}
+
+.maths-memory{
+    bottom:3%;
+    right:8%;
+    animation:cardFloat6 6s ease-in-out infinite;
+}
+
+@keyframes cardFloat1{
+    0%,100%{transform:rotate(-3deg) translateY(0)}
+    50%{transform:rotate(-1deg) translateY(-13px)}
+}
+
+@keyframes cardFloat2{
+    0%,100%{transform:rotate(3deg) translateY(0)}
+    50%{transform:rotate(1deg) translateY(-15px)}
+}
+
+@keyframes cardFloat3{
+    0%,100%{transform:rotate(2deg) translateY(0)}
+    50%{transform:rotate(0) translateY(-11px)}
+}
+
+@keyframes cardFloat4{
+    0%,100%{transform:rotate(-2deg) translateY(0)}
+    50%{transform:rotate(-4deg) translateY(-14px)}
+}
+
+@keyframes cardFloat5{
+    0%,100%{transform:rotate(-2deg) translateY(0)}
+    50%{transform:rotate(1deg) translateY(-12px)}
+}
+
+@keyframes cardFloat6{
+    0%,100%{transform:rotate(2deg) translateY(0)}
+    50%{transform:rotate(4deg) translateY(-14px)}
+}
+
+
+/* =========================================================
+   SNACK MUSEUM
+========================================================= */
+
+.snack-section{
+    background:linear-gradient(145deg,#fffafd,#f8eef9);
+    overflow:hidden;
+}
+
+.food-universe{
+    max-width:1050px;
+    min-height:650px;
+    margin:auto;
+    position:relative;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+}
+
+.food-photo{
+    position:absolute;
+    width:220px;
+    padding:8px;
+    background:#fff;
+    border:1px solid #eee1ed;
+    box-shadow:0 15px 35px rgba(80,50,90,.10);
+    transition:.4s;
+}
+
+.food-photo:hover{
+    transform:rotate(0) scale(1.08) translateY(-8px)!important;
+    z-index:10;
+    box-shadow:0 25px 55px rgba(80,50,90,.17);
+}
+
+.food-photo img{
+    width:100%;
+    height:210px;
+    object-fit:cover;
+}
+
+.food-photo span{
+    position:absolute;
+    right:10px;
+    bottom:8px;
+    color:#b47e9e;
+    font-size:18px;
+}
+
+.food-1{
+    top:4%;
+    left:7%;
+    transform:rotate(-8deg);
+    animation:foodFloat1 6s ease-in-out infinite;
+}
+
+.food-2{
+    top:2%;
+    right:8%;
+    transform:rotate(7deg);
+    animation:foodFloat2 5.5s ease-in-out infinite;
+}
+
+.food-3{
+    top:39%;
+    left:2%;
+    transform:rotate(4deg);
+    animation:foodFloat3 6.5s ease-in-out infinite;
+}
+
+.food-4{
+    top:38%;
+    right:2%;
+    transform:rotate(-6deg);
+    animation:foodFloat4 5.8s ease-in-out infinite;
+}
+
+.food-5{
+    bottom:3%;
+    left:15%;
+    transform:rotate(6deg);
+    animation:foodFloat5 6s ease-in-out infinite;
+}
+
+.food-6{
+    bottom:2%;
+    right:15%;
+    transform:rotate(-5deg);
+    animation:foodFloat6 5.5s ease-in-out infinite;
+}
+
+@keyframes foodFloat1{
+    0%,100%{transform:rotate(-8deg) translateY(0)}
+    50%{transform:rotate(-5deg) translateY(-17px)}
+}
+
+@keyframes foodFloat2{
+    0%,100%{transform:rotate(7deg) translateY(0)}
+    50%{transform:rotate(4deg) translateY(-15px)}
+}
+
+@keyframes foodFloat3{
+    0%,100%{transform:rotate(4deg) translateY(0)}
+    50%{transform:rotate(7deg) translateY(-13px)}
+}
+
+@keyframes foodFloat4{
+    0%,100%{transform:rotate(-6deg) translateY(0)}
+    50%{transform:rotate(-3deg) translateY(-18px)}
+}
+
+@keyframes foodFloat5{
+    0%,100%{transform:rotate(6deg) translateY(0)}
+    50%{transform:rotate(3deg) translateY(-14px)}
+}
+
+@keyframes foodFloat6{
+    0%,100%{transform:rotate(-5deg) translateY(0)}
+    50%{transform:rotate(-8deg) translateY(-16px)}
+}
+
+.food-center{
+    width:190px;
+    height:190px;
+    border-radius:50%;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+    background:linear-gradient(145deg,#fff,#f9eaf2);
+    border:1px solid #eadceb;
+    box-shadow:0 20px 60px rgba(100,70,110,.12);
+    position:relative;
+    z-index:5;
+    animation:centerFloat 5s ease-in-out infinite;
+}
+
+.food-center>div{
+    font-size:35px;
+}
+
+.food-center h3{
+    font-size:29px;
+    color:#755b7d;
+    margin:4px 0;
+}
+
+.food-center p{
+    color:#857887;
+    font-size:10px;
+    line-height:1.5;
+}
+
+
+/* =========================================================
+   FINAL MESSAGE
+========================================================= */
+
+.final-section{
+    min-height:80vh;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    text-align:center;
+    background:
+        radial-gradient(circle,#f6e0eb,transparent 40%),
+        #fffafd;
+}
+
+.final-inner{
+    max-width:650px;
+}
+
+.final-heart{
+    font-size:55px;
+    color:#bd83a4;
+    animation:heartBeat 2s infinite;
+}
+
+.final-inner h2{
+    font-family:"Playfair Display",serif;
+    font-size:clamp(38px,6vw,65px);
+    color:#705875;
+    font-weight:500;
+    margin:15px 0;
+}
+
+.final-inner p{
+    font-family:"Caveat",cursive;
+    font-size:25px;
+    line-height:1.5;
+    color:#9b708d;
+}
+
+.small-final{
+    margin-top:35px;
+    font-family:"DM Sans",sans-serif!important;
+    font-size:10px!important;
+    letter-spacing:2px;
+    color:#ae9cae!important;
+}
+
+@keyframes heartBeat{
+    0%,100%{transform:scale(1)}
+    50%{transform:scale(1.15)}
+}
+
+
+/* =========================================================
+   FOOTER
+========================================================= */
+
+footer{
+    padding:25px;
+    text-align:center;
+    font-size:9px;
+    letter-spacing:1px;
+    color:#b19ead;
+    background:#fffafd;
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media(max-width:700px){
+
+    section{
+        padding:75px 18px;
+        min-height:auto;
+    }
+
+    .hero{
+        min-height:100svh;
+    }
+
+    .hero h1{
+        font-size:55px;
+    }
+
+    .love-line{
+        font-size:22px;
+        padding:0 15px;
+    }
+
+
+    /* CORNER */
+
+    .corner{
+        min-height:auto;
+        display:grid;
+        grid-template-columns:1fr;
+        gap:15px;
+    }
+
+    .corner-center{
+        position:relative;
+        top:auto;
+        left:auto;
+        transform:none;
+        margin:0 auto 20px;
+        width:160px;
+        height:160px;
+        order:-1;
+    }
+
+    .corner-note{
+        position:relative;
+        width:100%;
+        left:auto!important;
+        right:auto!important;
+        top:auto!important;
+        bottom:auto!important;
+        animation:none;
+        transform:none;
+    }
+
+
+    /* TIMELINE */
+
+    .timeline::before{
+        left:8px;
+    }
+
+    .story-item,
+    .story-item:nth-child(even){
+        width:100%;
+        margin:0;
+        padding:18px 0 18px 35px;
+        text-align:left;
+    }
+
+    .story-item:nth-child(odd) .story-dot,
+    .story-item:nth-child(even) .story-dot{
+        left:2px;
+        right:auto;
+    }
+
+    .story-card{
+        max-width:none;
+        width:100%;
+    }
+
+    .chat-path{
+        flex-direction:column;
+    }
+
+    .chat-arrow{
+        transform:rotate(90deg);
+    }
+
+
+    /* MEMORIES */
+
+    .memory-universe{
+        min-height:auto;
+        display:grid;
+        grid-template-columns:1fr;
+        gap:12px;
+        padding:10px 0;
+    }
+
+    .remember-center{
+        order:-1;
+        width:145px;
+        height:145px;
+        margin:0 auto 12px;
+    }
+
+    .center-heart{
+        font-size:34px;
+    }
+
+    .remember-center h3{
+        font-size:24px;
+    }
+
+    .floating-memory{
+        position:relative;
+        top:auto!important;
+        right:auto!important;
+        bottom:auto!important;
+        left:auto!important;
+        width:100%;
+        animation:mobileMemoryFloat 5s ease-in-out infinite!important;
+        transform:none!important;
+    }
+
+    .floating-memory:nth-child(even){
+        animation-delay:.7s!important;
+    }
+
+    @keyframes mobileMemoryFloat{
+        0%,100%{
+            transform:translateY(0)!important;
+        }
+
+        50%{
+            transform:translateY(-5px)!important;
+        }
+    }
+
+
+    /* FOOD */
+
+    .food-universe{
+        min-height:auto;
+        display:grid;
+        grid-template-columns:1fr 1fr;
+        gap:15px;
+        padding:10px 0;
+    }
+
+    .food-center{
+        grid-column:1/-1;
+        grid-row:1;
+        width:140px;
+        height:140px;
+        margin:0 auto 8px;
+    }
+
+    .food-center>div{
+        font-size:27px;
+    }
+
+    .food-center h3{
+        font-size:24px;
+    }
+
+    .food-center p{
+        font-size:9px;
+    }
+
+    .food-photo{
+        position:relative;
+        top:auto!important;
+        right:auto!important;
+        bottom:auto!important;
+        left:auto!important;
+        width:100%;
+        padding:6px;
+    }
+
+    .food-photo img{
+        height:180px;
+    }
+
+    .food-1,
+    .food-3,
+    .food-5{
+        transform:rotate(-3deg);
+        animation:mobileFood1 5s ease-in-out infinite;
+    }
+
+    .food-2,
+    .food-4,
+    .food-6{
+        transform:rotate(3deg);
+        animation:mobileFood2 5.5s ease-in-out infinite;
+    }
+
+    @keyframes mobileFood1{
+        0%,100%{
+            transform:rotate(-3deg) translateY(0);
+        }
+
+        50%{
+            transform:rotate(-2deg) translateY(-7px);
+        }
+    }
+
+    @keyframes mobileFood2{
+        0%,100%{
+            transform:rotate(3deg) translateY(0);
+        }
+
+        50%{
+            transform:rotate(2deg) translateY(-7px);
+        }
+    }
+
+}
+
+
+@media(max-width:400px){
+
+    .food-photo img{
+        height:145px;
+    }
+
+    .food-center{
+        width:125px;
+        height:125px;
+    }
+
+    .food-center h3{
+        font-size:21px;
+    }
+
+    .food-center p{
+        font-size:8px;
+    }
+
+    .hero h1{
+        font-size:48px;
+    }
+}
+
+</style>
 </head>
 
 
 <body>
 
 
-    <!-- =====================================================
-         FLOATING BACKGROUND
-    ===================================================== -->
+<!-- =========================================================
+     BACKGROUND
+========================================================= -->
 
-    <div class="floating-bg">
-        <span>✦</span>
-        <span>✧</span>
-        <span>♡</span>
-        <span>·</span>
-        <span>✦</span>
-        <span>✧</span>
+<div class="background">
+
+    <div class="blob one"></div>
+    <div class="blob two"></div>
+    <div class="blob three"></div>
+
+    <div class="sparkle s1">✦</div>
+    <div class="sparkle s2">♡</div>
+    <div class="sparkle s3">✧</div>
+    <div class="sparkle s4">♡</div>
+
+</div>
+
+
+<!-- =========================================================
+     HERO
+========================================================= -->
+
+<section class="hero" id="home">
+
+    <div class="hero-inner">
+
+        <div class="tiny-label">
+            A LITTLE CORNER OF THE INTERNET
+        </div>
+
+        <h1>
+            For <em>you</em>,<br>
+            Paru ♡
+        </h1>
+
+        <p class="hero-subtitle">
+            Not a collection of perfect pictures.
+            Not a collection of big moments.
+            Just a tiny place for the little things
+            I somehow remember.
+        </p>
+
+        <div class="love-line">
+            “Liking someone may be attachment,
+            but choosing someone again and again
+            and again is love.”
+        </div>
+
+        <button class="enter-btn" id="enterBtn">
+            Enter our little universe ✨
+        </button>
+
+        <div class="scroll-note">
+            ↓ there's a little more
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================================
+     LITTLE CORNER
+========================================================= -->
+
+<section class="corner-section" id="universe">
+
+    <div class="section-heading">
+
+        <span>
+            01 · OUR LITTLE CORNER
+        </span>
+
+        <h2>
+            Some things just stayed.
+        </h2>
+
+        <p>
+            No dramatic story.
+            Just a few moments that became
+            strangely memorable.
+        </p>
+
     </div>
 
 
-    <!-- =====================================================
-         HERO
-    ===================================================== -->
+    <div class="corner">
 
-    <section class="hero">
+        <div class="corner-center">
 
-        <div class="hero-content">
+            <span>♡</span>
 
-            <p class="small-text">
-                a little something made for you...
+            <h3>
+                no one
+            </h3>
+
+            <p>
+                A nickname that somehow
+                became yours.
             </p>
 
-
-            <h1>
-                A Little<br>
-                <span>Corner</span><br>
-                For You ♡
-            </h1>
+        </div>
 
 
-            <p class="hero-description">
-                You already know how I feel about you.
-                <br>
-                This isn't about changing anything.
-                <br>
-                I just wanted to make something about you.
+        <div class="corner-note note1">
+
+            <h3>
+                02 June 2024
+            </h3>
+
+            <p>
+                The first time I saw you
+                on Snapchat.
+                Just a date at first.
+                Somehow it became the beginning
+                of a very long story.
             </p>
 
+        </div>
 
-            <!-- Quote -->
 
-            <div class="love-thought">
+        <div class="corner-note note2">
 
-                <span>just a thought...</span>
+            <h3>
+                21 → 22 September
+            </h3>
+
+            <p>
+                “Pehle aap jao.”
+                “Pehle aap jao.”
+                And somehow that conversation
+                survived until 4 in the morning.
+            </p>
+
+        </div>
+
+
+        <div class="corner-note note3">
+
+            <h3>
+                07 January
+            </h3>
+
+            <p>
+                Saw you in school during preboards
+                for the first time after all those
+                beautiful conversations.
+                A little moment,
+                but definitely memorable.
+            </p>
+
+        </div>
+
+
+        <div class="corner-note note4">
+
+            <h3>
+                23 January
+            </h3>
+
+            <p>
+                That beautiful reply.
+                One of those small things
+                that somehow stays in your head
+                much longer than expected.
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================================
+     STORY
+========================================================= -->
+
+<section class="story-section">
+
+    <div class="section-heading">
+
+        <span>
+            02 · THE STORY
+        </span>
+
+        <h2>
+            It was never really about one moment.
+        </h2>
+
+        <p>
+            It was all the tiny conversations
+            between the important ones.
+        </p>
+
+    </div>
+
+
+    <div class="timeline">
+
+
+        <div class="story-item reveal">
+
+            <div class="story-dot"></div>
+
+            <div class="story-card">
+
+                <div class="story-date">
+                    02 · 06 · 2024
+                </div>
+
+                <h3>
+                    First Snapchat sighting
+                </h3>
 
                 <p>
-                    “Liking someone may be attachment,
-                    but choosing someone again and again
-                    and again is love.”
+                    Before the long conversations,
+                    there was simply the first time
+                    I noticed you there.
                 </p>
 
             </div>
 
-
-            <!-- WORKING BUTTON -->
-
-            <button
-                class="main-btn"
-                id="enterBtn">
-
-                Enter our little universe ✨
-
-            </button>
-
         </div>
 
 
-        <div class="floating-heart">
-            ♡
-        </div>
+        <div class="story-item reveal">
 
-        <div class="floating-star star1">
-            ✦
-        </div>
+            <div class="story-dot"></div>
 
-        <div class="floating-star star2">
-            ✧
-        </div>
+            <div class="story-card">
 
-        <div class="floating-star star3">
-            ✦
-        </div>
-
-    </section>
-
-
-    <!-- =====================================================
-         STORY
-    ===================================================== -->
-
-    <section
-        id="story"
-        class="section story-section">
-
-        <div class="section-heading">
-
-            <span>
-                01 · HOW IT STARTED
-            </span>
-
-            <h2>
-                Our Little Internet Story
-            </h2>
-
-            <p>
-                We may not have hundreds of pictures together...
-                but somehow, we still have a lot of memories.
-            </p>
-
-        </div>
-
-
-        <div class="timeline">
-
-
-            <!-- 2 JUNE -->
-
-            <div class="timeline-item reveal">
-
-                <div class="timeline-dot">
-                    👀
+                <div class="story-date">
+                    21 → 22 · 09 · 2024
                 </div>
 
-                <div class="timeline-card">
-
-                    <span>
-                        02 JUNE 2024
-                    </span>
-
-                    <h3>
-                        The first time I saw you on Snap.
-                    </h3>
-
-                    <p>
-                        It was probably just another normal day
-                        for you.
-                    </p>
-
-                    <p class="handwritten">
-                        But I remember it. ♡
-                    </p>
-
-                </div>
-
-            </div>
-
-
-            <!-- SEPTEMBER -->
-
-            <div class="timeline-item reveal">
-
-                <div class="timeline-dot">
-                    🌙
-                </div>
-
-                <div class="timeline-card">
-
-                    <span>
-                        21 → 22 SEPTEMBER
-                    </span>
-
-                    <h3>
-                        The conversation that refused to end.
-                    </h3>
-
-                    <p>
-                        Our first proper conversation.
-                    </p>
-
-                    <p>
-                        “Pehle aap jao.”
-                        <br>
-                        “Pehle aap jao.”
-                    </p>
-
-                    <p>
-                        We kept saying it to each other...
-                        until suddenly it was 4 in the morning.
-                    </p>
-
-                    <div class="time-badge">
-                        4:00 AM 🌙
-                    </div>
-
-                </div>
-
-            </div>
-
-
-            <!-- JANUARY 7 -->
-
-            <div class="timeline-item reveal">
-
-                <div class="timeline-dot">
-                    🏫
-                </div>
-
-                <div class="timeline-card">
-
-                    <span>
-                        07 JANUARY
-                    </span>
-
-                    <h3>
-                        From conversations to seeing you at school.
-                    </h3>
-
-                    <p>
-                        Preboards were going on.
-                    </p>
-
-                    <p>
-                        And for the first time, I saw you at school
-                        after all those beautiful conversations.
-                    </p>
-
-                    <p class="handwritten">
-                        Some people feel familiar before
-                        you properly know them.
-                    </p>
-
-                </div>
-
-            </div>
-
-
-            <!-- JANUARY 23 -->
-
-            <div class="timeline-item reveal">
-
-                <div class="timeline-dot">
-                    💌
-                </div>
-
-                <div class="timeline-card">
-
-                    <span>
-                        23 JANUARY
-                    </span>
-
-                    <h3>
-                        A reply I didn't forget.
-                    </h3>
-
-                    <p>
-                        You probably don't remember what you said.
-                    </p>
-
-                    <p>
-                        I do.
-                    </p>
-
-                    <p class="handwritten">
-                        Some replies stay with you. ♡
-                    </p>
-
-                </div>
-
-            </div>
-
-
-            <!-- =================================================
-                 CONVERSATION JOURNEY
-            ================================================= -->
-
-            <div class="conversation-transition reveal">
-
-                <div class="conversation-intro">
-
-                    <span>
-                        AND THEN...
-                    </span>
-
-                    <h3>
-                        The app changed.
-                        <br>
-                        The conversations didn't.
-                    </h3>
-
-                    <p>
-                        From one little chat box to another,
-                        somehow we just kept talking.
-                    </p>
-
-                </div>
-
-
-                <div class="chat-journey">
-
-
-                    <!-- SNAPCHAT -->
-
-                    <div class="chat-step reveal">
-
-                        <div class="chat-icon">
-                            👻
-                        </div>
-
-                        <div>
-
-                            <span>
-                                WHERE IT STARTED
-                            </span>
-
-                            <h4>
-                                Snapchat
-                            </h4>
-
-                            <p>
-                                The first little beginning.
-                            </p>
-
-                        </div>
-
-                    </div>
-
-
-                    <div class="journey-arrow">
-                        ↓
-                    </div>
-
-
-                    <!-- TELEGRAM -->
-
-                    <div class="chat-step reveal">
-
-                        <div class="chat-icon">
-                            ✈️
-                        </div>
-
-                        <div>
-
-                            <span>
-                                THEN WE MOVED
-                            </span>
-
-                            <h4>
-                                Telegram
-                            </h4>
-
-                            <p>
-                                Different app.
-                                Same conversations.
-                            </p>
-
-                        </div>
-
-                    </div>
-
-
-                    <div class="journey-arrow">
-                        ↓
-                    </div>
-
-
-                    <!-- WHATSAPP -->
-
-                    <div class="chat-step reveal">
-
-                        <div class="chat-icon">
-                            💬
-                        </div>
-
-                        <div>
-
-                            <span>
-                                AND THEN
-                            </span>
-
-                            <h4>
-                                WhatsApp
-                            </h4>
-
-                            <p>
-                                More messages.
-                                More random conversations.
-                            </p>
-
-                        </div>
-
-                    </div>
-
-
-                    <div class="journey-arrow">
-                        ↓
-                    </div>
-
-
-                    <!-- SMS -->
-
-                    <div class="chat-step reveal">
-
-                        <div class="chat-icon">
-                            💌
-                        </div>
-
-                        <div>
-
-                            <span>
-                                EVEN HERE
-                            </span>
-
-                            <h4>
-                                SMS
-                            </h4>
-
-                            <p>
-                                Because apparently,
-                                changing platforms wasn't enough.
-                            </p>
-
-                        </div>
-
-                    </div>
-
-
-                    <!-- END -->
-
-                    <div class="journey-end">
-
-                        <div class="end-dots">
-                            • • •
-                        </div>
-
-                        <h3>
-                            And it never really ended.
-                        </h3>
-
-                        <p>
-                            The platform kept changing.
-                            <br>
-                            We just kept talking.
-                        </p>
-
-                        <div class="infinity">
-                            ∞
-                        </div>
-
-                    </div>
-
-                </div>
+                <h3>
+                    The 4 AM conversation
+                </h3>
+
+                <p>
+                    “Pehle aap jao.”
+                    became “Pehle aap jao.”
+                    until suddenly it was 4 AM.
+                </p>
 
             </div>
 
         </div>
 
-    </section>
 
+        <div class="story-item reveal">
 
-    <!-- =====================================================
-         THINGS SHE LIKES
-    ===================================================== -->
+            <div class="story-dot"></div>
 
-    <section class="section likes-section">
+            <div class="story-card">
 
-        <div class="section-heading">
+                <div class="story-date">
+                    07 · 01
+                </div>
 
-            <span>
-                02 · THINGS I REMEMBER
-            </span>
+                <h3>
+                    First school sighting
+                </h3>
 
-            <h2>
-                Things That Are Very Much You
-            </h2>
+                <p>
+                    Seeing you in school during
+                    preboards after all those
+                    conversations felt different.
+                </p>
 
-            <p>
-                The little things I somehow remember.
-            </p>
+            </div>
 
         </div>
 
 
-        <div class="knowledge-grid">
+        <div class="story-item reveal">
 
+            <div class="story-dot"></div>
 
-            <div class="knowledge-card reveal">
+            <div class="story-card">
 
-                <div class="icon">
-                    🎧
+                <div class="story-date">
+                    23 · 01
                 </div>
+
+                <h3>
+                    That beautiful reply
+                </h3>
+
+                <p>
+                    Some replies are just replies.
+                    And then there are those
+                    you remember without trying.
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- CHAT TRANSITION -->
+
+    <div class="chat-journey reveal">
+
+        <div class="chat-journey-title">
+            And then the conversation kept moving...
+        </div>
+
+        <div class="chat-path">
+
+            <div class="chat-app">
+                👻 Snapchat
+            </div>
+
+            <div class="chat-arrow">
+                →
+            </div>
+
+            <div class="chat-app">
+                ✈️ Telegram
+            </div>
+
+            <div class="chat-arrow">
+                →
+            </div>
+
+            <div class="chat-app">
+                💬 WhatsApp
+            </div>
+
+            <div class="chat-arrow">
+                →
+            </div>
+
+            <div class="chat-app">
+                💌 SMS
+            </div>
+
+        </div>
+
+        <div class="never-ended">
+            ...different apps, same conversation.
+            <br>
+            And it never really ended.
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================================
+     THINGS I REMEMBER
+========================================================= -->
+
+<section class="remember-section">
+
+    <div class="section-heading">
+
+        <span>
+            03 · THINGS I REMEMBER
+        </span>
+
+        <h2>
+            Little Things About You
+        </h2>
+
+        <p>
+            Maybe they're ordinary things.
+            <br>
+            But somehow, I remember them.
+        </p>
+
+    </div>
+
+
+    <div class="memory-universe">
+
+
+        <div class="floating-memory music-memory reveal">
+
+            <div class="memory-emoji">
+                🎧
+            </div>
+
+            <div>
+
+                <small>
+                    YOUR THING
+                </small>
 
                 <h3>
                     Music
                 </h3>
 
                 <p>
-                    Songs you like, songs you recommend,
-                    and songs that somehow become part
-                    of our conversations.
+                    You like listening to songs...
+                    and somehow some of them
+                    become part of our conversations.
                 </p>
 
             </div>
 
+        </div>
 
-            <div class="knowledge-card reveal">
 
-                <div class="icon">
-                    🎬
-                </div>
+        <div class="floating-memory series-memory reveal">
+
+            <div class="memory-emoji">
+                🎬
+            </div>
+
+            <div>
+
+                <small>
+                    YOUR RECOMMENDATIONS
+                </small>
 
                 <h3>
                     Web Series
                 </h3>
 
                 <p>
-                    You can definitely get invested
-                    in a good story.
+                    You don't just watch them.
+                    You also suggest them to me.
+                    And honestly, I like your suggestions.
                 </p>
 
             </div>
 
+        </div>
 
-            <div class="knowledge-card reveal">
 
-                <div class="icon">
-                    🎞️
-                </div>
+        <div class="floating-memory food-memory reveal">
+
+            <div class="memory-emoji">
+                🍫
+            </div>
+
+            <div>
+
+                <small>
+                    VERY IMPORTANT
+                </small>
 
                 <h3>
-                    Jab We Met
+                    Food
                 </h3>
 
                 <p>
-                    Your favourite Bollywood movie.
-                    Noted. Very carefully.
+                    Chocolates, ice cream, pani puri
+                    and basically anything that belongs
+                    to the fast-food department.
                 </p>
 
             </div>
 
+        </div>
 
-            <div class="knowledge-card reveal">
 
-                <div class="icon">
-                    🍫
-                </div>
+        <div class="floating-memory travel-memory reveal">
+
+            <div class="memory-emoji">
+                ✈️
+            </div>
+
+            <div>
+
+                <small>
+                    YOUR VIBE
+                </small>
 
                 <h3>
-                    Chocolates
+                    Ghumna Firna
                 </h3>
 
                 <p>
-                    Important enough to deserve
-                    an entire section of this website.
+                    Staying at home forever?
+                    Definitely not your favourite plan.
+                    You like going out and exploring.
                 </p>
 
             </div>
 
+        </div>
 
-            <div class="knowledge-card reveal">
 
-                <div class="icon">
-                    🥙
-                </div>
+        <div class="floating-memory freedom-memory reveal">
+
+            <div class="memory-emoji">
+                🦋
+            </div>
+
+            <div>
+
+                <small>
+                    ONE THING I KNOW
+                </small>
 
                 <h3>
-                    Pani Puri
+                    No Rok-Tok
                 </h3>
 
                 <p>
-                    One of the many members of
-                    the fast-food department.
+                    You don't like unnecessary restrictions
+                    or being told what you can and cannot do.
                 </p>
 
             </div>
 
+        </div>
 
-            <div class="knowledge-card reveal">
 
-                <div class="icon">
-                    📐
-                </div>
+        <div class="floating-memory maths-memory reveal">
+
+            <div class="memory-emoji">
+                📐
+            </div>
+
+            <div>
+
+                <small>
+                    WE BOTH KNOW THIS
+                </small>
 
                 <h3>
-                    Maths
+                    Maths...
                 </h3>
 
                 <p>
-                    And then there's maths...
+                    Let's just say...
+                    this relationship with mathematics
+                    isn't exactly working out.
                 </p>
 
-                <span class="nope">
-                    definitely not your favourite.
-                </span>
+                <strong>
+                    “Not your department.” 😭
+                </strong>
 
             </div>
 
         </div>
 
-    </section>
 
+        <div class="remember-center">
 
-    <!-- =====================================================
-         SNACK MUSEUM
-    ===================================================== -->
-
-    <section class="section snack-section">
-
-        <div class="section-heading">
-
-            <span>
-                03 · VERY IMPORTANT THINGS
-            </span>
-
-            <h2>
-                The Snack Museum 🍫
-            </h2>
-
-            <p>
-                A completely serious collection
-                of very important memories.
-            </p>
-
-        </div>
-
-
-        <div class="gallery">
-
-
-            <div class="memory-card reveal">
-
-                <img
-                    src="assets/chocolate1.jpg"
-                    alt="Chocolate">
-
-                <div class="memory-info">
-
-                    <span>
-                        EXHIBIT #001
-                    </span>
-
-                    <h3>
-                        The Chocolate
-                    </h3>
-
-                    <p>
-                        Obviously important.
-                    </p>
-
-                </div>
-
-            </div>
-
-
-            <div class="memory-card reveal">
-
-                <img
-                    src="assets/maggie.jpg"
-                    alt="Maggie">
-
-                <div class="memory-info">
-
-                    <span>
-                        EXHIBIT #002
-                    </span>
-
-                    <h3>
-                        Maggie
-                    </h3>
-
-                    <p>
-                        Because apparently food
-                        can become a memory too.
-                    </p>
-
-                </div>
-
-            </div>
-
-
-            <div class="memory-card reveal">
-
-                <img
-                    src="assets/pasta.jpg"
-                    alt="Pasta">
-
-                <div class="memory-info">
-
-                    <span>
-                        EXHIBIT #003
-                    </span>
-
-                    <h3>
-                        Pasta
-                    </h3>
-
-                    <p>
-                        No explanation necessary.
-                    </p>
-
-                </div>
-
-            </div>
-
-
-            <div class="memory-card reveal">
-
-                <img
-                    src="assets/pani-puri.jpg"
-                    alt="Pani Puri">
-
-                <div class="memory-info">
-
-                    <span>
-                        EXHIBIT #004
-                    </span>
-
-                    <h3>
-                        Pani Puri
-                    </h3>
-
-                    <p>
-                        Another important discovery.
-                    </p>
-
-                </div>
-
-            </div>
-
-        </div>
-
-    </section>
-
-
-    <!-- =====================================================
-         MUSIC
-    ===================================================== -->
-
-    <section class="section music-section">
-
-        <div class="section-heading">
-
-            <span>
-                04 · SOUNDTRACK
-            </span>
-
-            <h2>
-                Songs & Stories 🎧
-            </h2>
-
-            <p>
-                Some songs are just songs.
-                Some become attached to people.
-            </p>
-
-        </div>
-
-
-        <div class="music-list">
-
-
-            <div class="song-card reveal">
-
-                <div class="song-number">
-                    01
-                </div>
-
-                <div class="song-info">
-
-                    <h3>
-                        Add her song here
-                    </h3>
-
-                    <p>
-                        A song you recommended.
-                    </p>
-
-                </div>
-
-                <span>
-                    ♫
-                </span>
-
-            </div>
-
-
-            <div class="song-card reveal">
-
-                <div class="song-number">
-                    02
-                </div>
-
-                <div class="song-info">
-
-                    <h3>
-                        Add another song
-                    </h3>
-
-                    <p>
-                        One that reminds you of
-                        a particular conversation.
-                    </p>
-
-                </div>
-
-                <span>
-                    ♪
-                </span>
-
-            </div>
-
-
-            <div class="song-card reveal">
-
-                <div class="song-number">
-                    03
-                </div>
-
-                <div class="song-info">
-
-                    <h3>
-                        One more...
-                    </h3>
-
-                    <p>
-                        Because three songs are
-                        never enough.
-                    </p>
-
-                </div>
-
-                <span>
-                    ♫
-                </span>
-
-            </div>
-
-        </div>
-
-    </section>
-
-
-    <!-- =====================================================
-         WEB SERIES
-    ===================================================== -->
-
-    <section class="section series-section">
-
-        <div class="section-heading">
-
-            <span>
-                05 · WATCHLIST
-            </span>
-
-            <h2>
-                Your Watchlist 🎬
-            </h2>
-
-            <p>
-                The shows you like,
-                recommend or talk about.
-            </p>
-
-        </div>
-
-
-        <div class="series-grid">
-
-
-            <div class="series-card reveal">
-
-                <span>
-                    01
-                </span>
-
-                <h3>
-                    Your Series
-                </h3>
-
-                <p>
-                    Add the actual web series here.
-                </p>
-
-            </div>
-
-
-            <div class="series-card reveal">
-
-                <span>
-                    02
-                </span>
-
-                <h3>
-                    Your Series
-                </h3>
-
-                <p>
-                    Another one from her list.
-                </p>
-
-            </div>
-
-
-            <div class="series-card reveal">
-
-                <span>
-                    03
-                </span>
-
-                <h3>
-                    Your Series
-                </h3>
-
-                <p>
-                    One more favourite.
-                </p>
-
-            </div>
-
-        </div>
-
-    </section>
-
-
-    <!-- =====================================================
-         BIRTHDAY
-    ===================================================== -->
-
-    <section class="birthday-section">
-
-        <div class="birthday-content reveal">
-
-            <span>
-                06 · HER DAY
-            </span>
-
-            <div class="birthday-icon">
-                🎂
-            </div>
-
-            <h2>
-                Your Birthday
-            </h2>
-
-            <p>
-                One day every year that deserves
-                its own little chapter.
-            </p>
-
-
-            <div class="birthday-photo">
-
-                <img
-                    src="assets/birthday.jpg"
-                    alt="Birthday memory">
-
-            </div>
-
-
-            <p class="handwritten">
-                Happy birthday, Paru. ♡
-            </p>
-
-        </div>
-
-    </section>
-
-
-    <!-- =====================================================
-         THINGS I NOTICE
-    ===================================================== -->
-
-    <section class="section notice-section">
-
-        <div class="notice-content">
-
-            <span>
-                07 · THE LITTLE THINGS
-            </span>
-
-            <h2>
-                I Pay Attention.
-            </h2>
-
-            <p>
-                Not because I'm trying to.
-            </p>
-
-            <p>
-                I just remember.
-            </p>
-
-
-            <div class="notice-list">
-
-                <div class="reveal">
-                    🎧 The songs you like.
-                </div>
-
-                <div class="reveal">
-                    🎬 The stories you get invested in.
-                </div>
-
-                <div class="reveal">
-                    🍫 The chocolates.
-                </div>
-
-                <div class="reveal">
-                    🍜 The Maggie and pasta.
-                </div>
-
-                <div class="reveal">
-                    🥙 The pani puri.
-                </div>
-
-                <div class="reveal">
-                    📐 Your complete lack of enthusiasm
-                    for maths.
-                </div>
-
-                <div class="reveal">
-                    🎞️ Your love for Jab We Met.
-                </div>
-
-                <div class="reveal">
-                    💬 The random things you tell me.
-                </div>
-
-            </div>
-
-
-            <div class="notice-line"></div>
-
-
-            <p class="handwritten">
-                You probably forget some of these things.
-                <br>
-                I don't. ♡
-            </p>
-
-        </div>
-
-    </section>
-
-
-    <!-- =====================================================
-         FINAL
-    ===================================================== -->
-
-    <section class="final-section">
-
-        <div class="final-content">
-
-            <div class="final-symbol">
+            <div class="center-heart">
                 ♡
             </div>
 
-
-            <h2>
-                A Little Corner
-                <br>
-                Just For You.
-            </h2>
-
-
-            <p>
-                You already know how I feel about you.
-            </p>
-
-            <p>
-                So this isn't me trying to change anything.
-            </p>
-
-            <p>
-                No expectations.
-                No pressure.
-                Nothing you owe me.
-            </p>
-
-
-            <div class="final-line"></div>
-
-
-            <p class="special-message">
-
-                I just wanted to make something
-                out of the little things I remember.
-
-                <br><br>
-
-                The first Snap.
-
-                <br>
-
-                The 4 AM conversation.
-
-                <br>
-
-                “Pehle aap jao.”
-
-                <br>
-
-                No One.
-
-                <br>
-
-                Paru.
-
-                <br>
-
-                7 January.
-
-                <br>
-
-                23 January.
-
-                <br>
-
-                Snapchat.
-
-                <br>
-
-                Telegram.
-
-                <br>
-
-                WhatsApp.
-
-                <br>
-
-                SMS.
-
-                <br>
-
-                The songs.
-
-                <br>
-
-                The shows.
-
-                <br>
-
-                The chocolates.
-
-                <br>
-
-                The random food pictures.
-
-                <br>
-
-                And all those little things
-                that probably seemed ordinary.
-
-            </p>
-
-
-            <div class="final-line"></div>
-
-
             <h3>
-                Some memories don't need a photograph.
+                I remember.
             </h3>
 
-
-            <p class="signature">
-                — your idiot best friend ♡
+            <p>
+                Not because I made a list.
+                <br>
+                It just happens.
             </p>
 
         </div>
 
-    </section>
+    </div>
+
+</section>
 
 
-    <footer>
+<!-- =========================================================
+     SNACK MUSEUM
+========================================================= -->
+
+<section class="snack-section">
+
+    <div class="section-heading">
+
+        <span>
+            04 · THE CHATORI CORNER
+        </span>
+
+        <h2>
+            A Little Food Museum 🍫
+        </h2>
 
         <p>
-            Made with memories & a little bit of code ♡
+            Six random little memories
+            for my chatori friend.
         </p>
 
-    </footer>
+    </div>
 
 
-    <!-- =====================================================
-         JAVASCRIPT
-    ===================================================== -->
-
-    <script>
-
-        /* ============================================
-           ENTER OUR LITTLE UNIVERSE
-        ============================================ */
-
-        const enterButton =
-            document.getElementById("enterBtn");
-
-        const storySection =
-            document.getElementById("story");
+    <div class="food-universe">
 
 
-        enterButton.addEventListener("click", function () {
+        <!-- CHANGE THESE SIX IMAGE FILES -->
 
-            storySection.scrollIntoView({
-                behavior: "smooth",
-                block: "start"
-            });
+        <div class="food-photo food-1 reveal">
+
+            <img
+                src="assets/food1.jpg"
+                alt="Food memory">
+
+            <span>♡</span>
+
+        </div>
+
+
+        <div class="food-photo food-2 reveal">
+
+            <img
+                src="assets/food2.jpg"
+                alt="Food memory">
+
+            <span>✦</span>
+
+        </div>
+
+
+        <div class="food-photo food-3 reveal">
+
+            <img
+                src="assets/food3.jpg"
+                alt="Food memory">
+
+            <span>♡</span>
+
+        </div>
+
+
+        <div class="food-photo food-4 reveal">
+
+            <img
+                src="assets/food4.jpg"
+                alt="Food memory">
+
+            <span>✧</span>
+
+        </div>
+
+
+        <div class="food-photo food-5 reveal">
+
+            <img
+                src="assets/food5.jpg"
+                alt="Food memory">
+
+            <span>♡</span>
+
+        </div>
+
+
+        <div class="food-photo food-6 reveal">
+
+            <img
+                src="assets/food6.jpg"
+                alt="Food memory">
+
+            <span>✦</span>
+
+        </div>
+
+
+        <div class="food-center">
+
+            <div>
+                🍴
+            </div>
+
+            <h3>
+                Chatori Alert
+            </h3>
+
+            <p>
+                Good food + good mood.
+                <br>
+                That's enough explanation.
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================================
+     FINAL
+========================================================= -->
+
+<section class="final-section">
+
+    <div class="final-inner">
+
+        <div class="final-heart">
+            ♡
+        </div>
+
+        <h2>
+            That's the thing about you.
+        </h2>
+
+        <p>
+            You probably don't realise how many
+            little things about you I remember.
+            And maybe that's exactly why
+            I wanted to make this little corner.
+        </p>
+
+        <p class="small-final">
+            SOME PEOPLE BECOME MEMORIES.
+            <br>
+            SOME PEOPLE BECOME PART OF THEM.
+        </p>
+
+    </div>
+
+</section>
+
+
+<footer>
+    made with too many memories & a little bit of code ♡
+</footer>
+
+
+<!-- =========================================================
+     JAVASCRIPT
+========================================================= -->
+
+<script>
+
+/* =========================================================
+   ENTER BUTTON
+========================================================= */
+
+const enterBtn = document.getElementById("enterBtn");
+
+enterBtn.addEventListener("click", function(){
+
+    document.getElementById("universe").scrollIntoView({
+        behavior:"smooth"
+    });
+
+});
+
+
+/* =========================================================
+   REVEAL ANIMATION
+========================================================= */
+
+const revealElements =
+document.querySelectorAll(".reveal");
+
+const observer =
+new IntersectionObserver(
+
+    function(entries){
+
+        entries.forEach(function(entry){
+
+            if(entry.isIntersecting){
+
+                entry.target.classList.add("show");
+
+                observer.unobserve(entry.target);
+
+            }
 
         });
 
+    },
 
-        /* ============================================
-           SCROLL REVEAL
-        ============================================ */
+    {
+        threshold:.15
+    }
 
-        const revealElements =
-            document.querySelectorAll(".reveal");
-
-
-        const observer =
-            new IntersectionObserver(
-
-                function (entries) {
-
-                    entries.forEach(function (entry) {
-
-                        if (entry.isIntersecting) {
-
-                            entry.target.classList.add("show");
-
-                            observer.unobserve(entry.target);
-
-                        }
-
-                    });
-
-                },
-
-                {
-                    threshold: 0.12
-                }
-
-            );
+);
 
 
-        revealElements.forEach(function (element) {
+revealElements.forEach(function(element){
 
-            observer.observe(element);
+    observer.observe(element);
+
+});
+
+
+/* =========================================================
+   RANDOM LITTLE SPARKLES
+========================================================= */
+
+function createSparkle(){
+
+    const sparkle =
+    document.createElement("div");
+
+    sparkle.innerHTML =
+    ["✦","♡","✧","·"][Math.floor(Math.random()*4)];
+
+    sparkle.style.position="fixed";
+    sparkle.style.left=
+    Math.random()*100+"vw";
+
+    sparkle.style.top=
+    Math.random()*100+"vh";
+
+    sparkle.style.fontSize=
+    (Math.random()*10+7)+"px";
+
+    sparkle.style.color="#d7afca";
+
+    sparkle.style.pointerEvents="none";
+
+    sparkle.style.zIndex="-1";
+
+    sparkle.style.opacity="0";
+
+    sparkle.style.transition=
+    "opacity 1s ease, transform 4s ease";
+
+    document.body.appendChild(sparkle);
+
+
+    requestAnimationFrame(function(){
+
+        sparkle.style.opacity=".45";
+
+        sparkle.style.transform=
+        "translateY(-35px) rotate(25deg)";
+
+    });
+
+
+    setTimeout(function(){
+
+        sparkle.style.opacity="0";
+
+    },2500);
+
+
+    setTimeout(function(){
+
+        sparkle.remove();
+
+    },3500);
+
+}
+
+
+setInterval(createSparkle,900);
+
+
+/* =========================================================
+   PREVENT BROKEN IMAGE LOOK
+   Shows a soft placeholder if an image hasn't
+   been added yet.
+========================================================= */
+
+document.querySelectorAll(".food-photo img")
+.forEach(function(img){
+
+    img.addEventListener("error",function(){
+
+        this.style.display="none";
+
+        const parent=this.parentElement;
+
+        parent.style.height="210px";
+
+        parent.style.display="grid";
+
+        parent.style.placeItems="center";
+
+        const placeholder=
+        document.createElement("div");
+
+        placeholder.innerHTML="♡";
+
+        placeholder.style.fontSize="35px";
+
+        placeholder.style.color="#d4a8c2";
+
+        parent.appendChild(placeholder);
+
+    });
+
+});
+
+
+/* =========================================================
+   SMALL PARALLAX EFFECT ON DESKTOP
+========================================================= */
+
+if(window.innerWidth > 700){
+
+    document.addEventListener("mousemove",function(e){
+
+        const x =
+        (e.clientX/window.innerWidth-.5)*2;
+
+        const y =
+        (e.clientY/window.innerHeight-.5)*2;
+
+        document.querySelectorAll(".blob")
+        .forEach(function(blob,index){
+
+            const amount=(index+1)*5;
+
+            blob.style.transform=
+            `translate(${x*amount}px,${y*amount}px)`;
 
         });
 
+    });
 
-        /* ============================================
-           FLOATING BACKGROUND PARALLAX
-        ============================================ */
+}
 
-        window.addEventListener("scroll", function () {
-
-            const background =
-                document.querySelector(".floating-bg");
-
-            if (!background) return;
-
-            background.style.transform =
-                "translateY(" +
-                window.scrollY * 0.02 +
-                "px)";
-
-        });
-
-
-        /* ============================================
-           IMAGE FALLBACK
-        ============================================ */
-
-        document
-            .querySelectorAll("img")
-            .forEach(function (image) {
-
-                image.addEventListener(
-                    "error",
-                    function () {
-
-                        image.style.display = "none";
-
-                        const parent =
-                            image.parentElement;
-
-                        if (parent) {
-
-                            parent.innerHTML += `
-                                <div style="
-                                    min-height:220px;
-                                    display:grid;
-                                    place-items:center;
-                                    background:#f8e9f2;
-                                    color:#9a7bb5;
-                                    font-family:Caveat,cursive;
-                                    font-size:25px;
-                                ">
-                                    Your memory photo goes here ♡
-                                </div>
-                            `;
-
-                        }
-
-                    }
-                );
-
-            });
-
-
-        /* ============================================
-           LITTLE CONSOLE MESSAGE
-        ============================================ */
-
-        console.log(
-            "♡ A Little Corner For You ♡"
-        );
-
-    </script>
+</script>
 
 </body>
-
 </html>
 ```
