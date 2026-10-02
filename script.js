@@ -1,97 +1,93 @@
 ```javascript
-/* =========================
-   SMOOTH SCROLL
-========================= */
+/* =====================================
+   ENTER OUR LITTLE UNIVERSE BUTTON
+===================================== */
 
-function scrollToSection(id) {
+const enterButton = document.getElementById("enterBtn");
+const storySection = document.getElementById("story");
 
-    const section = document.getElementById(id);
+if (enterButton && storySection) {
 
-    if (section) {
+    enterButton.addEventListener("click", function () {
 
-        section.scrollIntoView({
-            behavior: "smooth"
+        storySection.scrollIntoView({
+            behavior: "smooth",
+            block: "start"
         });
 
-    }
+    });
 
 }
 
 
-/* =========================
+/* =====================================
    SCROLL REVEAL
-========================= */
+===================================== */
 
-const revealElements =
-    document.querySelectorAll(
-        ".timeline-card, .knowledge-card, .memory-card, .song-card, .series-card, .notice-list div, .birthday-content"
-    );
+const revealElements = document.querySelectorAll(
+    ".timeline-card, " +
+    ".knowledge-card, " +
+    ".memory-card, " +
+    ".song-card, " +
+    ".series-card, " +
+    ".notice-list div, " +
+    ".birthday-content"
+);
 
 
-const observer =
-    new IntersectionObserver(
+const observer = new IntersectionObserver(
 
-        (entries) => {
+    (entries) => {
 
-            entries.forEach((entry) => {
+        entries.forEach((entry) => {
 
-                if (entry.isIntersecting) {
+            if (entry.isIntersecting) {
 
-                    entry.target.style.opacity = "1";
+                entry.target.classList.add("show");
 
-                    entry.target.style.transform =
-                        "translateY(0)";
+                observer.unobserve(entry.target);
 
-                }
+            }
 
-            });
+        });
 
-        },
+    },
 
-        {
-            threshold: 0.15
-        }
+    {
+        threshold: 0.12
+    }
 
-    );
+);
 
 
 revealElements.forEach((element) => {
 
-    element.style.opacity = "0";
-
-    element.style.transform =
-        "translateY(30px)";
-
-    element.style.transition =
-        "opacity 0.8s ease, transform 0.8s ease";
+    element.classList.add("reveal");
 
     observer.observe(element);
 
 });
 
 
-/* =========================
-   PARALLAX
-========================= */
+/* =====================================
+   FLOATING STARS
+===================================== */
 
 window.addEventListener("scroll", () => {
 
-    const stars =
-        document.querySelector(".stars");
+    const stars = document.querySelector(".stars");
 
-    if (stars) {
+    if (!stars) return;
 
-        stars.style.transform =
-            `translateY(${window.scrollY * 0.03}px)`;
-
-    }
+    stars.style.transform =
+        `translateY(${window.scrollY * 0.02}px)`;
 
 });
 
 
-/* =========================
+/* =====================================
    IMAGE FALLBACK
-========================= */
+===================================== */
 
 document.querySelectorAll("img").forEach((image) => {
 
@@ -99,25 +95,14 @@ document.querySelectorAll("img").forEach((image) => {
 
         image.style.display = "none";
 
-        const parent =
-            image.parentElement;
+        const parent = image.parentElement;
 
         if (parent) {
 
-            parent.style.minHeight = "250px";
-
-            parent.style.display = "grid";
-
-            parent.style.placeItems = "center";
-
-            parent.style.background = "#eee8ef";
+            parent.classList.add("image-missing");
 
             parent.innerHTML += `
-                <p style="
-                    font-family:Caveat;
-                    font-size:28px;
-                    color:#8b72a8;
-                ">
+                <p>
                     Your memory photo goes here ♡
                 </p>
             `;
@@ -129,20 +114,16 @@ document.querySelectorAll("img").forEach((image) => {
 });
 
 
-/* =========================
-   SECRET CONSOLE MESSAGE
-========================= */
+/* =====================================
+   LITTLE CONSOLE MESSAGE
+===================================== */
 
 console.log(`
-♡
+♡ A Little Corner For You ♡
 
-You found the little corner's source code.
+Some memories were remembered,
+but not everything needs to be displayed.
 
-Some things were remembered,
-but not displayed.
-
-That's kind of the point.
-
-— No One's website
+— No One's little corner
 `);
 ```
